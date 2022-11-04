@@ -1,0 +1,148 @@
+{
+  "schedule": [
+    {
+      "id": 1,
+      "name": "Zaza",
+      "meetings": [
+        {
+          "id": 100,
+          "startTime": "2022-11-04T18:30:00+02:00",
+          "endTime": "2022-11-04T22:30:00+02:00",
+          "subject": "Meeting with Michael!!!"
+        },
+        {
+          "id": 101,
+          "startTime": "2023-01-01T00:00:00+02:00",
+          "endTime": "2023-01-01T00:00:00+02:00",
+          "subject": "5 days Vacation"
+        },
+        {
+          "id": 102,
+          "startTime": "2022-11-05T10:35:00+02:00",
+          "endTime": "2022-11-05T12:35:00+02:00",
+          "subject": "meeting aaa"
+        },
+        {
+          "id": 103,
+          "startTime": "2022-11-05T19:35:00+02:00",
+          "endTime": "2022-11-05T20:05:00+02:00",
+          "subject": "meeting with Michael"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Dave",
+      "meetings": [
+        {
+          "id": 227,
+          "startTime": "2022-08-06T09:00:00+00:00",
+          "endTime": "2022-08-06T10:00:00+00:00",
+          "subject": "Meeting a"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Mary",
+      "meetings": [
+        {
+          "id": 314,
+          "startTime": "2022-08-06T08:15:39+00:00",
+          "endTime": "2022-08-06T09:55:39+00:00",
+          "subject": "Meeting a"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Michael",
+      "meetings": [
+        {
+          "id": 437,
+          "startTime": "2022-08-06T11:15:39+00:00",
+          "endTime": "2022-08-06T12:55:39+00:00",
+          "subject": "Meeting a"
+        },
+        {
+          "id": 438,
+          "startTime": "2022-08-06T17:15:39+00:00",
+          "endTime": "2022-08-06T18:59:39+00:00",
+          "subject": "Meeting c"
+        },
+        {
+          "id": 439,
+          "startTime": "2023-01-01T02:25:00+02:00",
+          "endTime": "2023-01-01T02:55:00+02:00",
+          "subject": "rrrrrrr"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tatiana",
+      "meetings": [
+        {
+          "id": 507,
+          "startTime": "2022-08-06T11:15:39+00:00",
+          "endTime": "2022-08-06T12:55:39+00:00",
+          "subject": "Meeting a"
+        },
+        {
+          "id": 508,
+          "startTime": "2022-08-06T14:15:39+00:00",
+          "endTime": "2022-08-06T14:55:39+00:00",
+          "subject": "Meeting b"
+        },
+        {
+          "id": 509,
+          "startTime": "2022-08-06T17:15:39+00:00",
+          "endTime": "2022-08-06T18:59:39+00:00",
+          "subject": "Meeting c"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "David",
+      "meetings": [
+        {
+          "id": 600,
+          "startTime": "2022-08-06T14:00:00+00:00",
+          "endTime": "2022-08-06T15:00:00+00:00",
+          "subject": "Meeting a"
+        },
+        {
+          "id": 601,
+          "startTime": "2022-08-06T19:00:00+00:00",
+          "endTime": "2022-08-06T19:30:00+00:00",
+          "subject": "Meeting a"
+        },
+        {
+          "id": 602,
+          "startTime": "2023-01-01T02:20:00+02:00",
+          "endTime": "2023-01-01T02:50:00+02:00",
+          "subject": "zaza"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Dudu",
+      "meetings": [
+        {
+          "id": 700,
+          "startTime": "2023-04-02T03:10:00+03:00",
+          "endTime": "2023-04-02T03:30:00+03:00",
+          "subject": "ddd"
+        },
+        {
+          "id": 701,
+          "startTime": "2022-11-04T10:25:00+02:00",
+          "endTime": "2022-11-04T11:05:00+02:00",
+          "subject": "plus one"
+        }
+      ]
+    }
+  ]
+}

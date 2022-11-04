@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 1.3rem;
+    text-shadow: 0px 0px 2px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+        'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    width: 500px;
+}
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 500px;
+    border: 1px solid blue;
+    margin: auto;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+header,
+footer {
+    width: 100%;
+    background-color: mediumblue;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+    margin-bottom: 0.05rem;
+}
+.backButtonShape {
+    display: flex;
+    color: blue;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 900;
+    width: 80px;
+    height: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.backButtonPosition {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 3rem;
+    margin-top: auto;
+    margin-bottom: 0.2rem;
+}
+.nav {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+.nav ul {
+    line-height: 140%;
+    list-style-type: none;
+    width: 100%;
+}
+
+.nav ul li:hover {
+    background-color: #333;
+    color: antiquewhite;
+}
+
+.nav ul .Link:last-child li {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.nav ul .Link {
+    text-decoration: none;
+    width: 100%;
+}
+
+.nav h2 {
+    background-color: gold;
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+}
+
+select,
+input,
+button,
+.button {
+    width: 6rem;
+    height: 1.3rem;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    margin: 0.1rem 0.5rem;
+}
+textarea {
+    width: 20rem;
+    font-size: 0.75rem;
+    margin: 0.1rem 0.5rem;
+    height: 1.3rem;
+    border-radius: 0.3rem;
+    justify-items: center;
+    padding: 0.1rem;
+}
+.confirm {
+    color: forestgreen;
+}
+.makeChange {
+    color: rgb(38, 1, 73);
+}
+button:hover,
+input:hover,
+select:hover,
+.button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: aliceblue;
+}
+.appointmentsList {
+    color: rgba(0, 0, 255, 0.9);
+    list-style-type: none;
+    list-style-position: outside;
+    text-align: center;
+}
+.selectedEmployees {
+    display: flex;
+    flex-direction: column;
+    min-width: 490px;
+    color: rgb(1, 48, 1);
+    list-style-type: none;
+    list-style-position: outside;
+    text-align: center;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.faplus {
+    width: 68px;
+    height: 38px;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: auto;
+}
+.faplus:hover,
+:focus {
+    background-color: black;
+    color: aliceblue;
+}
+.searchAppointment input {
+    width: 13rem;
+    height: 1.7rem;
+
+    margin: 0.3rem;
+}
