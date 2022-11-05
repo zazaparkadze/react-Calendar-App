@@ -1,3 +1,4 @@
+import { API_URI_employees, API_URI_schedule } from './config/API_URI_DB';
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
@@ -11,12 +12,10 @@ import Admin from './admin/Admin';
 import photo from './img/katan.jpg';
 
 function App() {
-    const API_URI_schedule = 'http://localhost:3500/schedule';
-    const API_URI_employees = 'http://localhost:3501/employees';
     const [employeeID, setEmployeeID] = useState('');
     const [allEmployees, setAllEmployees] = useState([]);
     const [schedule, setSchedule] = useState([]);
-    const [searchAppointment, setSearchAppointment] = useState('');
+    /* const [searchAppointment, setSearchAppointment] = useState(''); */
     const [searchAppointmentName, setSearchAppointmentName] = useState('');
     const [duration, setDuration] = useState(0);
     const [durationDay, setDurationDay] = useState(0);
@@ -106,8 +105,8 @@ function App() {
                                                 searchAppointmentName.toLowerCase()
                                             )
                                     )}
-                                    searchAppointment={searchAppointment}
-                                    setSearchAppointment={setSearchAppointment}
+                                    /* searchAppointment={searchAppointment}
+                                    setSearchAppointment={setSearchAppointment} */
                                     searchAppointmentName={
                                         searchAppointmentName
                                     }

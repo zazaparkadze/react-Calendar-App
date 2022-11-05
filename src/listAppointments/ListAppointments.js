@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import BackButton from '../buttons/BackButton';
 import AppList from './AppList';
 import SearchAppointment from './SearchAppointment';
@@ -7,11 +8,12 @@ import { parseISO, format } from 'date-fns';
 
 const ListAppointments = ({
     schedule,
-    searchAppointment,
-    setSearchAppointment,
+    /* searchAppointment,
+    setSearchAppointment, */
     searchAppointmentName,
     setSearchAppointmentName,
 }) => {
+    const [searchAppointment, setSearchAppointment] = useState('');
     return (
         <>
             <p>List of Appointments</p>
