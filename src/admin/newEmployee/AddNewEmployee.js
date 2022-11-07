@@ -23,12 +23,13 @@ const AddNewEmployee = ({
                 id='ID'
                 required
                 value={newEmployee.id}
-                onChange={
-                    (e) =>
-                        setNewEmployee({
-                            ...newEmployee,
-                            id: Number(e.target.value),
-                        }) // check!!
+                onChange={(e) =>
+                    setNewEmployee({
+                        ...newEmployee,
+                        id: isNaN(Number(e.target.value))
+                            ? 0
+                            : Number(e.target.value),
+                    })
                 }
             />
             <p style={{ color: 'green' }}>
@@ -44,7 +45,10 @@ const AddNewEmployee = ({
                 onChange={(e) =>
                     setNewEmployee({
                         ...newEmployee,
-                        firstname: e.target.value,
+                        firstname:
+                            e.target.value.match(/[\W]|\d/g) === null
+                                ? e.target.value
+                                : '',
                     })
                 }
             />
@@ -57,7 +61,10 @@ const AddNewEmployee = ({
                 onChange={(e) =>
                     setNewEmployee({
                         ...newEmployee,
-                        lastname: e.target.value,
+                        lastname:
+                            e.target.value.match(/[\W]|\d/g) === null
+                                ? e.target.value
+                                : '',
                     })
                 }
             />
@@ -69,7 +76,9 @@ const AddNewEmployee = ({
                 onChange={(e) => {
                     setNewEmployee({
                         ...newEmployee,
-                        employeeID: Number(e.target.value), // check!!
+                        employeeID: isNaN(Number(e.target.value))
+                            ? 0
+                            : Number(e.target.value),
                     });
                 }}
             />
