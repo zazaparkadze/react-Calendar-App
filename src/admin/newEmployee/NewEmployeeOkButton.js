@@ -3,6 +3,7 @@ import handleNewEmployee from './handleNewEmployee';
 
 const NewEmployeeOkButton = ({
     newEmployee,
+    setNewEmployee,
     allEmployees,
     setAllEmployees,
     schedule,
@@ -12,13 +13,18 @@ const NewEmployeeOkButton = ({
         <button
             className='confirm'
             onClick={() => {
-                handleNewEmployee(
-                    newEmployee,
-                    allEmployees,
-                    setAllEmployees,
-                    schedule,
-                    setSchedule
-                );
+                newEmployee.id !== 0 &&
+                    newEmployee.employeeID !== 0 &&
+                    newEmployee.firstname !== '' &&
+                    newEmployee.lastname !== '' &&
+                    handleNewEmployee(
+                        newEmployee,
+                        setNewEmployee,
+                        allEmployees,
+                        setAllEmployees,
+                        schedule,
+                        setSchedule
+                    );
             }}
         >
             Confirm

@@ -8,8 +8,6 @@ import { parseISO, format } from 'date-fns';
 
 const ListAppointments = ({
     schedule,
-    /* searchAppointment,
-    setSearchAppointment, */
     searchAppointmentName,
     setSearchAppointmentName,
 }) => {

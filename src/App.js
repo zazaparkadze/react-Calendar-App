@@ -15,7 +15,6 @@ function App() {
     const [employeeID, setEmployeeID] = useState('');
     const [allEmployees, setAllEmployees] = useState([]);
     const [schedule, setSchedule] = useState([]);
-    /* const [searchAppointment, setSearchAppointment] = useState(''); */
     const [searchAppointmentName, setSearchAppointmentName] = useState('');
     const [duration, setDuration] = useState(0);
     const [durationDay, setDurationDay] = useState(0);
@@ -53,18 +52,14 @@ function App() {
             }
         };
 
-        setTimeout(() => {
-            // for testing
-
-            (async () => {
-                const employeeList = await fetchInfo(API_URI_employees);
-                setAllEmployees(employeeList);
-            })();
-            (async () => {
-                const scheduleList = await fetchInfo(API_URI_schedule);
-                setSchedule(scheduleList);
-            })();
-        }, 1000);
+        (async () => {
+            const employeeList = await fetchInfo(API_URI_employees);
+            setAllEmployees(employeeList);
+        })();
+        (async () => {
+            const scheduleList = await fetchInfo(API_URI_schedule);
+            setSchedule(scheduleList);
+        })();
     }, []);
 
     return (
@@ -105,8 +100,6 @@ function App() {
                                                 searchAppointmentName.toLowerCase()
                                             )
                                     )}
-                                    /* searchAppointment={searchAppointment}
-                                    setSearchAppointment={setSearchAppointment} */
                                     searchAppointmentName={
                                         searchAppointmentName
                                     }

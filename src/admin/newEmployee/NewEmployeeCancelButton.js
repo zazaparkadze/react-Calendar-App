@@ -9,7 +9,7 @@ const NewEmployeeCancelButton = ({ setNewEmployee }) => {
                     id: 0,
                     firstname: '',
                     lastname: '',
-                    newEmployeeID: 0,
+                    employeeID: 0,
                 });
             }}
         >

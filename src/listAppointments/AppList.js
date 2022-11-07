@@ -4,7 +4,7 @@ import { FaMeetup } from 'react-icons/fa';
 
 const AppList = ({ sch }) => {
     let myColors = ['gray', 'black'];
-    console.log(sch);
+    // console.log(sch);
     return (
         <ol>
             {!sch.length && <p style={{ color: 'red' }}> No Appointment</p>}

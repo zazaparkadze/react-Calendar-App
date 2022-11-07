@@ -9,30 +9,6 @@
           "startTime": "2022-11-04T18:30:00+02:00",
           "endTime": "2022-11-04T22:30:00+02:00",
           "subject": "Meeting with Michael!!!"
-        },
-        {
-          "id": 101,
-          "startTime": "2023-01-01T00:00:00+02:00",
-          "endTime": "2023-01-01T00:00:00+02:00",
-          "subject": "5 days Vacation"
-        },
-        {
-          "id": 102,
-          "startTime": "2022-11-05T10:35:00+02:00",
-          "endTime": "2022-11-05T12:35:00+02:00",
-          "subject": "meeting aaa"
-        },
-        {
-          "id": 103,
-          "startTime": "2022-11-05T19:35:00+02:00",
-          "endTime": "2022-11-05T20:05:00+02:00",
-          "subject": "meeting with Michael"
-        },
-        {
-          "id": 104,
-          "startTime": "2022-11-06T07:30:00+02:00",
-          "endTime": "2022-11-06T08:00:00+02:00",
-          "subject": "zazzz"
         }
       ]
     },
@@ -69,18 +45,6 @@
           "startTime": "2022-08-06T11:15:39+00:00",
           "endTime": "2022-08-06T12:55:39+00:00",
           "subject": "Meeting a"
-        },
-        {
-          "id": 438,
-          "startTime": "2022-08-06T17:15:39+00:00",
-          "endTime": "2022-08-06T18:59:39+00:00",
-          "subject": "Meeting c"
-        },
-        {
-          "id": 439,
-          "startTime": "2023-01-01T02:25:00+02:00",
-          "endTime": "2023-01-01T02:55:00+02:00",
-          "subject": "rrrrrrr"
         }
       ]
     },
@@ -93,18 +57,6 @@
           "startTime": "2022-08-06T11:15:39+00:00",
           "endTime": "2022-08-06T12:55:39+00:00",
           "subject": "Meeting a"
-        },
-        {
-          "id": 508,
-          "startTime": "2022-08-06T14:15:39+00:00",
-          "endTime": "2022-08-06T14:55:39+00:00",
-          "subject": "Meeting b"
-        },
-        {
-          "id": 509,
-          "startTime": "2022-08-06T17:15:39+00:00",
-          "endTime": "2022-08-06T18:59:39+00:00",
-          "subject": "Meeting c"
         }
       ]
     },
@@ -117,18 +69,6 @@
           "startTime": "2022-08-06T14:00:00+00:00",
           "endTime": "2022-08-06T15:00:00+00:00",
           "subject": "Meeting a"
-        },
-        {
-          "id": 601,
-          "startTime": "2022-08-06T19:00:00+00:00",
-          "endTime": "2022-08-06T19:30:00+00:00",
-          "subject": "Meeting a"
-        },
-        {
-          "id": 602,
-          "startTime": "2023-01-01T02:20:00+02:00",
-          "endTime": "2023-01-01T02:50:00+02:00",
-          "subject": "zaza"
         }
       ]
     },
@@ -138,17 +78,46 @@
       "meetings": [
         {
           "id": 700,
-          "startTime": "2023-04-02T03:10:00+03:00",
-          "endTime": "2023-04-02T03:30:00+03:00",
-          "subject": "ddd"
-        },
-        {
-          "id": 701,
-          "startTime": "2022-11-04T10:25:00+02:00",
-          "endTime": "2022-11-04T11:05:00+02:00",
-          "subject": "plus one"
+          "startTime": "2022-11-06T16:03:00+02:00",
+          "endTime": "2022-11-06T16:43:00+02:00",
+          "subject": "first meeting this week"
         }
       ]
+    },
+    {
+      "id": 8,
+      "name": "Dasha",
+      "meetings": [
+        {
+          "id": 800,
+          "startTime": "2022-11-06T17:12:00+02:00",
+          "endTime": "2022-11-06T18:12:00+02:00",
+          "subject": "first meeting!!!!!"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Yuval",
+      "meetings": [
+        {
+          "id": 900,
+          "startTime": "2022-11-01T10:16:00+02:00",
+          "endTime": "2022-11-01T10:56:00+02:00",
+          "subject": "yuval meeting "
+        },
+        {
+          "id": 901,
+          "startTime": "2023-01-01T00:00:00+02:00",
+          "endTime": "2023-01-01T00:00:00+02:00",
+          "subject": "0 days Vacation"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Moti",
+      "meetings": []
     }
   ]
 }
