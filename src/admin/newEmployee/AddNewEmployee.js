@@ -34,7 +34,12 @@ const AddNewEmployee = ({
             />
             <p style={{ color: 'green' }}>
                 {' '}
-                rec: {allEmployees[allEmployees.length - 1].id + 1}{' '}
+                rec:{' '}
+                {allEmployees.length
+                    ? allEmployees.sort((a, b) => a.id - b.id)[
+                          allEmployees.length - 1
+                      ].id + 1
+                    : 1}{' '}
             </p>
             <label>First Name</label>
             <input
@@ -84,7 +89,12 @@ const AddNewEmployee = ({
             />
             <p style={{ color: 'green' }}>
                 {' '}
-                rec: {allEmployees[allEmployees.length - 1].employeeID + 1}{' '}
+                rec:{' '}
+                {allEmployees.length
+                    ? allEmployees.sort((a, b) => a.id - b.id)[
+                          allEmployees.length - 1
+                      ].employeeID + 1
+                    : 1720}{' '}
             </p>
             <ConfirmDeclineEmployee
                 allEmployees={allEmployees}

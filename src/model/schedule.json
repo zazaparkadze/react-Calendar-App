@@ -9,6 +9,12 @@
           "startTime": "2022-11-04T18:30:00+02:00",
           "endTime": "2022-11-04T22:30:00+02:00",
           "subject": "Meeting with Michael!!!"
+        },
+        {
+          "id": 101,
+          "startTime": "2022-11-01T14:37:00+02:00",
+          "endTime": "2022-11-01T14:37:00+02:00",
+          "subject": "zzzz"
         }
       ]
     },
@@ -117,7 +123,14 @@
     {
       "id": 10,
       "name": "Moti",
-      "meetings": []
+      "meetings": [
+        {
+          "id": 1000,
+          "startTime": "2022-11-01T14:48:00+02:00",
+          "endTime": "2022-11-01T15:48:00+02:00",
+          "subject": "moti"
+        }
+      ]
     }
   ]
 }

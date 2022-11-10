@@ -17,7 +17,7 @@ const Nav = () => {
                         <li>ADD New Appointment To Schedule </li>
                     </Link>
                     <Link className='Link' to='vacations'>
-                        <li>Employees Vacations</li>
+                        <li>Add Employees New Vacations</li>
                     </Link>
                     <Link className='Link' to='announcements'>
                         <li>Announcements</li>

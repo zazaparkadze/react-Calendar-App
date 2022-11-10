@@ -8,9 +8,7 @@ import {
     startOfDay,
     endOfDay,
 } from 'date-fns';
-/* 
-const schedule = require('../model/schedule.json').schedule;
-const employees = require('../model/employees.json'); */
+
 const functionFreeIntervals = (schedule, employees) => {
     const employeesNames = [];
     for (let i = 0; i < employees.length; i++) {
@@ -19,11 +17,11 @@ const functionFreeIntervals = (schedule, employees) => {
     let selectedEmployeesSchedule = schedule.filter(
         (schedule) => employeesNames.indexOf(schedule.name) !== -1
     );
-    // console.log(selectedEmployeesSchedule);
+
     function busyTimeGaps(schedule) {
         let intervals = [];
+        let index = 0;
         for (let k = 0; k < schedule.length; k++) {
-            let index = 0;
             for (let i = 0; i < schedule[k].meetings.length; i++) {
                 intervals[index] = {
                     id: schedule[k].meetings[i].id,
@@ -34,11 +32,10 @@ const functionFreeIntervals = (schedule, employees) => {
             }
         }
 
-        intervals.sort((a, b) =>
-            compareAsc(new Date(a.startTime), new Date(b.startTime))
-        );
+        intervals.sort((a, b) => compareAsc(a.startTime, b.startTime));
+
         for (let i = 0; i < intervals.length - 1; ) {
-            //  console.log(i);
+            // console.log(i);
             let result = areIntervalsOverlapping(
                 {
                     start: intervals[i].startTime,
@@ -70,7 +67,6 @@ const functionFreeIntervals = (schedule, employees) => {
     }
 
     const intervals = busyTimeGaps(selectedEmployeesSchedule);
-    // console.log(intervals);
     const freeTimeGaps = (intervals) => {
         const arr = [];
         arr[0] = {
@@ -93,8 +89,7 @@ const functionFreeIntervals = (schedule, employees) => {
         return arr;
     };
     const freeIntervals = freeTimeGaps(intervals);
-    //console.log(freeIntervals);
-    //
+
     function handleISOFormatting(freeIntervals) {
         freeIntervals.forEach((element) => {
             element.startTime = formatISO(element.startTime);
@@ -102,7 +97,6 @@ const functionFreeIntervals = (schedule, employees) => {
         });
     }
 
-    // console.log(schedule);
     handleISOFormatting(freeIntervals);
     return freeIntervals;
 };

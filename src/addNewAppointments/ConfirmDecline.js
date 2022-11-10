@@ -15,6 +15,8 @@ const ConfirmDecline = ({
     duration,
     API_URI_schedule,
     setFetchError,
+    vac,
+    setVac,
 }) => {
     return (
         <div>
@@ -29,6 +31,10 @@ const ConfirmDecline = ({
                 duration={duration}
                 API_URI_schedule={API_URI_schedule}
                 setFetchError={setFetchError}
+                vac={vac}
+                setVac={setVac}
+                setNewAppointment={setNewAppointment}
+                setSubject={setSubject}
             />
             <CancelButton
                 startTime={startTime}

@@ -24,6 +24,8 @@ const Vacations = ({
     setSubject,
     API_URI_schedule,
     setFetchError,
+    vac,
+    setVac,
 }) => {
     const handleNewVacation = (employeeID) => {
         const foundEmployee = allEmployees.find(
@@ -36,8 +38,7 @@ const Vacations = ({
             );
 
             setNewAppointment({
-                id: foundNameEntry.meetings[foundNameEntry.meetings.length - 1] //foundNameEntry.meetings.length -- better solution
-                    .id
+                id: foundNameEntry.meetings.length //foundNameEntry.meetings.length -- better solution
                     ? foundNameEntry.meetings[
                           foundNameEntry.meetings.length - 1
                       ].id + 1
@@ -54,6 +55,7 @@ const Vacations = ({
                 ),
                 subject: durationDay + ' days Vacation',
             });
+            setVac(true);
         }
     };
     return (
@@ -76,7 +78,6 @@ const Vacations = ({
             />
             <FaPlus
                 className='button'
-                type='submit'
                 onClick={() => handleNewVacation(employeeID)}
             />
             <ConfirmMessage
@@ -91,6 +92,7 @@ const Vacations = ({
                     setStartTime={setStartTime}
                     setDuration={setDurationDay} /* important */
                     employeeID={employeeID}
+                    duration={durationDay}
                     newAppointment={newAppointment}
                     schedule={schedule}
                     allEmployees={allEmployees}
@@ -98,6 +100,8 @@ const Vacations = ({
                     setNewAppointment={setNewAppointment}
                     API_URI_schedule={API_URI_schedule}
                     setFetchError={setFetchError}
+                    vac={vac}
+                    setVac={setVac}
                 />
             ) : (
                 <p>Please, fill all fields!</p>

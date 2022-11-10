@@ -3,7 +3,7 @@ import React from 'react';
 const EmployeeID = ({ setEmployeeID, employeeID, allEmployees }) => {
     return (
         <>
-            <h2 style={{ margin: '1.2rem' }}>AddNewAppointment</h2>
+            <h2 style={{ margin: '1.2rem' }}>AddNewAppointment/Vacation</h2>
             <label>Your employee ID:</label>
             <input
                 id='employeeID'

@@ -4,6 +4,7 @@ import EmployeesList from './EmployeesList';
 import TimeGaps from './TimeGaps';
 import BackButton from '../buttons/BackButton';
 import FreeTimeGapsList from './FreeTimeGapsList';
+import SelectDate from './SelectDate';
 import { useState } from 'react';
 
 const FreeTimeGaps = ({ allEmployees, schedule }) => {
@@ -19,6 +20,7 @@ const FreeTimeGaps = ({ allEmployees, schedule }) => {
                 employees={employees}
                 setEmployees={setEmployees}
             />
+            <SelectDate />
             <EmployeesList employees={employees} setEmployees={setEmployees} />
             <TimeGaps
                 employees={employees}

@@ -7,7 +7,9 @@ const handleNewAppointment = (
     startTime,
     duration,
     subject,
-    setNewAppointment
+    setNewAppointment,
+    vac,
+    setVac
 ) => {
     const foundEmployee = allEmployees.find(
         (e) => e.employeeID === Number(employeeID)
@@ -33,20 +35,11 @@ const handleNewAppointment = (
                 }),
                 'HH:mm:ss dd/MM/yyyy'
             ),
-            subject: subject,
+            subject: duration + ' minutes meeting:' + subject,
         });
+        setVac(false);
     } else {
         console.log('no employee found');
     }
 };
 export default handleNewAppointment;
-
-/* 
-                
-                id: foundNameEntry.meetings[foundNameEntry.meetings.length - 1].id
-                ? foundNameEntry.meetings[foundNameEntry.meetings.length - 1]
-                      .id + 1
-                : 1,
-                
-                
-                */

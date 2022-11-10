@@ -1,6 +1,5 @@
 import { formatISO, add } from 'date-fns/esm';
 import apiReguest from '../config/apiRequest';
-
 const updateSchedule = async (
     employeeID,
     newAppointment,
@@ -11,43 +10,54 @@ const updateSchedule = async (
     startTime,
     duration,
     API_URI_schedule,
-    setFetchError
+    setFetchError,
+    vac,
+    setVac
 ) => {
     const foundEmployee = allEmployees.find(
         (e) => e.employeeID === Number(employeeID)
     );
+
     if (foundEmployee) {
         const foundEmployeeName = foundEmployee.firstname;
         const foundNameSchedule = schedule.find(
             (e) => e.name === foundEmployeeName
         );
         // converting to ISO format
+        const addminutes = {
+            minutes: duration,
+        };
+        const adddays = {
+            days: duration - 1,
+        };
+
         const newAppointmentFORMATISO = {
             ...newAppointment,
             startTime: formatISO(new Date(...Object.values(startTime))),
             endTime: formatISO(
-                add(new Date(...Object.values(startTime)), {
-                    minutes: duration,
-                })
+                add(
+                    new Date(...Object.values(startTime)),
+                    vac ? adddays : addminutes
+                )
             ),
         };
-        // console.log(newAppointmentFORMATISO);
-        //adding new appointment to meetings array
+
         foundNameSchedule.meetings = [
             ...foundNameSchedule.meetings,
             newAppointmentFORMATISO,
         ];
-        //console.log(foundNameSchedule);
 
         const updateOptions = {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(foundNameSchedule),
+            body: JSON.stringify({
+                newApp: newAppointmentFORMATISO,
+                entryID: foundNameSchedule.id,
+            }),
         };
-
-        const url = `${API_URI_schedule}/${foundNameSchedule.id}`;
+        const url = `${API_URI_schedule}`;
         const result = await apiReguest(url, updateOptions);
         if (result) setFetchError(result);
 
@@ -61,16 +71,8 @@ const updateSchedule = async (
             seconds: 0,
             miliseconds: 0,
         });
-        setDuration(0);
+        setDuration(5);
+        setVac(false);
     }
 };
 export default updateSchedule;
-
-/* 
-console.log(schedule);
-        schedule.map((e) =>
-            e.name === foundNameEntry.name
-                ? (e = { ...newAppointmentFORMATISO })
-                : null
-        );
-        console.log(schedule, 'zaza'); */

@@ -1,5 +1,5 @@
 import apiReguest from '../../config/apiRequest';
-import { API_URI_employees, API_URI_schedule } from '../../config/API_URI_DB';
+import { API_URI_employee, API_URI_schedule } from '../../config/API_URI_DB';
 
 const handleNewEmployee = async (
     newEmployee,
@@ -11,9 +11,6 @@ const handleNewEmployee = async (
 ) => {
     setAllEmployees([...allEmployees, newEmployee]);
 
-    //console.log(schedule);
-    console.log(Array.isArray(schedule));
-
     const postRequestForNewEmployee = {
         method: 'POST',
         headers: {
@@ -22,13 +19,13 @@ const handleNewEmployee = async (
         body: JSON.stringify(newEmployee),
     };
     const result = await apiReguest(
-        API_URI_employees,
+        API_URI_employee,
         postRequestForNewEmployee
     );
-    if (result) throw new Error('json-server error');
+    if (result) throw new Error('json-server error I');
 
     const newEmployeeNameEntry = {
-        id: schedule[schedule.length - 1].id + 1,
+        id: schedule.length ? schedule[schedule.length - 1].id + 1 : 1,
         name: newEmployee.firstname,
         meetings: [],
     };

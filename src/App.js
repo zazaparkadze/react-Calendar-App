@@ -1,4 +1,4 @@
-import { API_URI_employees, API_URI_schedule } from './config/API_URI_DB';
+import { API_URI_employee, API_URI_schedule } from './config/API_URI_DB';
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
@@ -16,15 +16,16 @@ function App() {
     const [allEmployees, setAllEmployees] = useState([]);
     const [schedule, setSchedule] = useState([]);
     const [searchAppointmentName, setSearchAppointmentName] = useState('');
-    const [duration, setDuration] = useState(0);
-    const [durationDay, setDurationDay] = useState(0);
+    const [duration, setDuration] = useState(5);
+    const [durationDay, setDurationDay] = useState(1);
     const [subject, setSubject] = useState('');
     const [fetchError, setFetchError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [vac, setVac] = useState(false);
     const [startTime, setStartTime] = useState({
         year: new Date().getFullYear(),
         month: new Date().getMonth(),
-        day: new Date().getDay(),
+        day: new Date().getDate(),
         hours: new Date().getHours(),
         minutes: new Date().getMinutes(),
         seconds: 0,
@@ -53,7 +54,7 @@ function App() {
         };
 
         (async () => {
-            const employeeList = await fetchInfo(API_URI_employees);
+            const employeeList = await fetchInfo(API_URI_employee);
             setAllEmployees(employeeList);
         })();
         (async () => {
@@ -100,6 +101,7 @@ function App() {
                                                 searchAppointmentName.toLowerCase()
                                             )
                                     )}
+                                    setSchedule={setSchedule}
                                     searchAppointmentName={
                                         searchAppointmentName
                                     }
@@ -130,6 +132,8 @@ function App() {
                             setNewAppointment={setNewAppointment}
                             API_URI_schedule={API_URI_schedule}
                             setFetchError={setFetchError}
+                            vac={vac}
+                            setVac={setVac}
                         />
                     }
                 />
@@ -175,6 +179,8 @@ function App() {
                             setSubject={setSubject}
                             API_URI_schedule={API_URI_schedule}
                             setFetchError={setFetchError}
+                            vac={vac}
+                            setVac={setVac}
                         />
                     }
                 />

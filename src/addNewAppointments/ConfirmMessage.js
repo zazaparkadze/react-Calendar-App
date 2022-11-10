@@ -9,7 +9,6 @@ const ConfirmMessage = ({ newAppointment }) => {
                         The following will be added to the overall company
                         schedule:
                         <br />
-                        {/*            id: {newAppointment.id} <br /> */}
                         Start: {newAppointment.startTime} <br />
                         End: {newAppointment.endTime} <br />
                         Subject: {newAppointment.subject}

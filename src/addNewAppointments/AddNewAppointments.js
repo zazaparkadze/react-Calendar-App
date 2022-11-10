@@ -16,7 +16,6 @@ const AddNewAppointment = ({
     setLinkClicked,
     allEmployees,
     schedule,
-    setSchedule,
     startTime,
     setStartTime,
     employeeID,
@@ -29,6 +28,8 @@ const AddNewAppointment = ({
     setSubject,
     API_URI_schedule,
     setFetchError,
+    vac,
+    setVac,
 }) => {
     return (
         <div>
@@ -56,7 +57,9 @@ const AddNewAppointment = ({
                             startTime,
                             duration,
                             subject,
-                            setNewAppointment
+                            setNewAppointment,
+                            vac,
+                            setVac
                         );
                     }}
                 />
@@ -85,6 +88,8 @@ const AddNewAppointment = ({
                         duration={duration}
                         API_URI_schedule={API_URI_schedule}
                         setFetchError={setFetchError}
+                        vac={vac}
+                        setVac={setVac}
                     />
                 ) : (
                     <p>Please, fill all fields!</p>

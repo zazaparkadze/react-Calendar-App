@@ -2,6 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import handleFreeIntervals from './handleFreeIntervals';
 
+//
 const TimeGaps = ({ schedule, employees, setFreeTimeGaps }) => {
     const showFreeTimeGaps = () => {
         const result = handleFreeIntervals(schedule, employees);
@@ -13,7 +14,6 @@ const TimeGaps = ({ schedule, employees, setFreeTimeGaps }) => {
             );
             el.endTime = format(new Date(el.endTime), 'yyyy-MM-dd HH:mm:ss');
         });
-        //console.log(result);
         setFreeTimeGaps(result);
     };
     return (

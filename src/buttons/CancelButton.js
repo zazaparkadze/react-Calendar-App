@@ -15,13 +15,13 @@ const CancelButton = ({
                     ...startTime,
                     year: new Date().getFullYear(),
                     month: new Date().getMonth(),
-                    day: new Date().getDay(),
+                    day: new Date().getDate(),
                     hours: new Date().getHours(),
                     minutes: new Date().getMinutes(),
                     seconds: 0,
                     miliseconds: 0,
                 });
-                setDuration(0);
+                setDuration(1);
                 setSubject('');
                 setNewAppointment({});
             }}

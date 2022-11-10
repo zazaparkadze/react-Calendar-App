@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import handleLogIn from './handleLogIn';
 
-const Auth = () => {
+const Auth = ({ login, setLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     return (
@@ -22,7 +22,11 @@ const Auth = () => {
                 onChange={(e) => setPassword(e.target.value)} // check
             />
             <label>submit</label>
-            <button onClick={() => handleLogIn(username, password)}>OK</button>
+            <button
+                onClick={() => handleLogIn(username, password, login, setLogin)}
+            >
+                OK
+            </button>
         </form>
     );
 };

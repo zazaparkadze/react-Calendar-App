@@ -8,6 +8,7 @@ const Subject = ({ subject, setSubject }) => {
                 name='subject'
                 id='subject'
                 value={subject}
+                required={true}
                 onChange={(e) => setSubject(e.target.value)}
             ></textarea>
         </>
