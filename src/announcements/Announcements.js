@@ -2,19 +2,29 @@ import React from 'react';
 
 import BackButton from '../buttons/BackButton';
 
-const Announcements = () => {
+const Announcements = ({
+    startTime,
+    setStartTime,
+    setDuration,
+    setSubject,
+    setNewAppointment,
+}) => {
     return (
         <>
-            <div>
-                <ul className='App'>
-                    <h2>Announcements</h2>
-                    <li>Special Announcement</li>
-                    <li>Corona Virus Update</li>
-                    <li>Corporative Party</li>
-                    <li>CHAT</li>
-                    <BackButton />
-                </ul>
-            </div>
+            <ul className='App'>
+                <h2>Announcements</h2>
+                <li>Special Announcement</li>
+                <li>Corona Virus Update</li>
+                <li>Corporative Party</li>
+                <li>Blog</li>
+                <BackButton
+                    startTime={startTime}
+                    setStartTime={setStartTime}
+                    setDuration={setDuration}
+                    setSubject={setSubject}
+                    setNewAppointment={setNewAppointment}
+                />
+            </ul>
         </>
     );
 };

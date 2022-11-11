@@ -23,12 +23,3 @@ const FindAndAddEmployees = ({ employees, setEmployees, allEmployees }) => {
 };
 
 export default FindAndAddEmployees;
-
-/* 
-import { FaHeart } from 'react-icons/fa';
-<FaHeart
-style={{
-    color: 'green',
-    boxShadow: '2px 2px 5px',
-}}
-/> */

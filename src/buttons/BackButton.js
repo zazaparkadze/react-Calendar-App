@@ -1,7 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BackButton = ({ startTime, setStartTime, setDuration, setSubject }) => {
+const BackButton = ({
+    startTime,
+    setStartTime,
+    setDuration,
+    setSubject,
+    setNewAppointment,
+}) => {
     const navigate = useNavigate();
     return (
         <div className='backButtonPosition'>
@@ -11,17 +17,23 @@ const BackButton = ({ startTime, setStartTime, setDuration, setSubject }) => {
                     startTime
                         ? () => {
                               navigate(-1);
-                              setDuration(0);
+                              setDuration(1);
                               setSubject('');
+                              setNewAppointment({
+                                  id: 0,
+                                  startTime: '',
+                                  endTime: '',
+                                  subject: '',
+                              });
                               setStartTime({
                                   ...startTime,
-                                  year: 2022,
-                                  month: 0,
-                                  day: 1,
-                                  hours: 0,
-                                  minutes: 0,
+                                  year: new Date().getFullYear(),
+                                  month: new Date().getMonth(),
+                                  day: new Date().getDate(),
+                                  hours: new Date().getHours(),
+                                  minutes: new Date().getMinutes(),
                                   seconds: 0,
-                                  miliseconds: 0,
+                                  milliseconds: 0,
                               });
                           }
                         : () => {

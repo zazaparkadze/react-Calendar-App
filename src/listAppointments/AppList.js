@@ -14,7 +14,9 @@ const AppList = ({ sch, schedule, setSchedule, schID }) => {
         const foundNameEntry = schedule.find((e) => e.id === schID);
         const filteredSchedule = schedule.filter((e) => e.id !== schID);
         const updated = { ...foundNameEntry, meetings: filteredAppointments };
-        const updatedSchedule = [...filteredSchedule, updated];
+        const updatedSchedule = [...filteredSchedule, updated].sort(
+            (a, b) => a.id - b.id
+        );
         setSchedule(updatedSchedule);
 
         const updateOptions = {

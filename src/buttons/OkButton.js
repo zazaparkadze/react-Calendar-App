@@ -10,6 +10,7 @@ const OkButton = ({
     allEmployees,
     setStartTime,
     setDuration,
+    setDurationDay,
     startTime,
     duration,
     API_URI_schedule,
@@ -46,8 +47,14 @@ const OkButton = ({
                     miliseconds: 0,
                 });
                 setDuration(5);
+                setDurationDay(1);
                 setSubject('');
-                setNewAppointment({});
+                setNewAppointment({
+                    id: 0,
+                    startTime: '',
+                    endTime: '',
+                    subject: '',
+                });
             }}
         >
             Confirm

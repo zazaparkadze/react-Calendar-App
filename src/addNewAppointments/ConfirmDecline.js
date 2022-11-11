@@ -6,6 +6,7 @@ const ConfirmDecline = ({
     startTime,
     setStartTime,
     setDuration,
+    setDurationDay,
     employeeID,
     newAppointment,
     setNewAppointment,
@@ -24,6 +25,7 @@ const ConfirmDecline = ({
                 startTime={startTime}
                 setStartTime={setStartTime}
                 setDuration={setDuration}
+                setDurationDay={setDurationDay}
                 employeeID={employeeID}
                 newAppointment={newAppointment}
                 schedule={schedule}

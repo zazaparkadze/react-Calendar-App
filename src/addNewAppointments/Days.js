@@ -4,7 +4,7 @@ import { days } from '../config/datesTimesInfo';
 const Days = ({ startTime, setStartTime }) => {
     return (
         <>
-            <label>Day</label>
+            <label htmlFor='day'>Day</label>
             <select
                 name='day'
                 id='day'

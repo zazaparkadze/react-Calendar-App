@@ -36,37 +36,29 @@ const Vacations = ({
             const foundNameEntry = schedule.find(
                 (e) => e.name === foundEmployeeName
             );
-
             setNewAppointment({
                 id: foundNameEntry.meetings.length
                     ? foundNameEntry.meetings[
                           foundNameEntry.meetings.length - 1
                       ].id + 1
                     : 1,
-                /*formatISO9075(
-                    startOfDay(new Date(...Object.values(startTime)))
-                ), */
                 startTime: format(
                     startOfDay(new Date(...Object.values(startTime))),
                     'HH:mm:ss dd/MM/yyyy'
                 ),
-                /* formatISO9075(
-                    endOfDay(
-                        add(new Date(...Object.values(startTime)), {
-                            days: durationDay - 1,
-                        })
-                    )
-                ), */
-
                 endTime: format(
                     endOfDay(
                         add(new Date(...Object.values(startTime)), {
-                            days: durationDay - 1,
+                            days: durationDay,
                         })
                     ),
                     'HH:mm:ss dd/MM/yyyy'
                 ),
-                subject: durationDay + ' days Vacation',
+                subject: durationDay.concat(
+                    Number(durationDay) === 1
+                        ? ' Day Vacation'
+                        : ' Days Vacation'
+                ),
             });
             setVac(true);
         }
@@ -81,6 +73,7 @@ const Vacations = ({
                 setEmployeeID={setEmployeeID}
                 employeeID={employeeID}
                 allEmployees={allEmployees}
+                title={'Vacation'}
             />
             <Days startTime={startTime} setStartTime={setStartTime} />
             <Months startTime={startTime} setStartTime={setStartTime} />
@@ -130,8 +123,3 @@ const Vacations = ({
 };
 
 export default Vacations;
-
-/* 
-console.log(
-    `Vacation/appointment for ${employeeID} is added successfully`
-); */

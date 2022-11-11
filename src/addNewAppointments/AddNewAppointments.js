@@ -13,7 +13,6 @@ import Subject from './Subject';
 import handleNewAppointment from './handleNewAppointment';
 
 const AddNewAppointment = ({
-    setLinkClicked,
     allEmployees,
     schedule,
     startTime,
@@ -22,6 +21,7 @@ const AddNewAppointment = ({
     setEmployeeID,
     duration,
     setDuration,
+    setDurationDay,
     newAppointment,
     setNewAppointment,
     subject,
@@ -38,6 +38,7 @@ const AddNewAppointment = ({
                     setEmployeeID={setEmployeeID}
                     employeeID={employeeID}
                     allEmployees={allEmployees}
+                    title={'Appointment'}
                 />
                 <Hours startTime={startTime} setStartTime={setStartTime} />
                 <Minutes startTime={startTime} setStartTime={setStartTime} />
@@ -79,6 +80,7 @@ const AddNewAppointment = ({
                         startTime={startTime}
                         setStartTime={setStartTime}
                         setDuration={setDuration}
+                        setDurationDay={setDurationDay}
                         employeeID={employeeID}
                         newAppointment={newAppointment}
                         schedule={schedule}
@@ -95,11 +97,11 @@ const AddNewAppointment = ({
                     <p>Please, fill all fields!</p>
                 )}
                 <BackButton
-                    setLinkClicked={setLinkClicked}
                     startTime={startTime}
                     setStartTime={setStartTime}
                     setDuration={setDuration}
                     setSubject={setSubject}
+                    setNewAppointment={setNewAppointment}
                 />
             </form>
         </div>

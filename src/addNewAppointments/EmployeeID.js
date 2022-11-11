@@ -1,9 +1,9 @@
 import React from 'react';
 
-const EmployeeID = ({ setEmployeeID, employeeID, allEmployees }) => {
+const EmployeeID = ({ setEmployeeID, employeeID, allEmployees, title }) => {
     return (
         <>
-            <h2 style={{ margin: '1.2rem' }}>AddNewAppointment/Vacation</h2>
+            <h2 style={{ margin: '1.2rem' }}>{title}</h2>
             <label>Your employee ID:</label>
             <input
                 id='employeeID'

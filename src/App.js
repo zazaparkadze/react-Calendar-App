@@ -126,6 +126,7 @@ function App() {
                             setEmployeeID={setEmployeeID}
                             duration={duration}
                             setDuration={setDuration}
+                            setDurationDay={setDurationDay}
                             subject={subject}
                             setSubject={setSubject}
                             newAppointment={newAppointment}
@@ -157,6 +158,11 @@ function App() {
                                 <FreeTimeGaps
                                     allEmployees={allEmployees}
                                     schedule={schedule}
+                                    startTime={startTime}
+                                    setStartTime={setStartTime}
+                                    setDuration={setDuration}
+                                    setSubject={setSubject}
+                                    setNewAppointment={setNewAppointment}
                                 />
                             )}
                         </>

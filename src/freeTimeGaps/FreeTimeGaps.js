@@ -7,7 +7,15 @@ import FreeTimeGapsList from './FreeTimeGapsList';
 import SelectDate from './SelectDate';
 import { useState } from 'react';
 
-const FreeTimeGaps = ({ allEmployees, schedule }) => {
+const FreeTimeGaps = ({
+    allEmployees,
+    schedule,
+    startTime,
+    setStartTime,
+    setDuration,
+    setSubject,
+    setNewAppointment,
+}) => {
     const [employees, setEmployees] = useState([]);
     const [freeTimeGaps, setFreeTimeGaps] = useState([]);
     return (
@@ -28,7 +36,13 @@ const FreeTimeGaps = ({ allEmployees, schedule }) => {
                 setFreeTimeGaps={setFreeTimeGaps}
             />
             <FreeTimeGapsList freeTimeGaps={freeTimeGaps} />
-            <BackButton />
+            <BackButton
+                startTime={startTime}
+                setStartTime={setStartTime}
+                setDuration={setDuration}
+                setSubject={setSubject}
+                setNewAppointment={setNewAppointment}
+            />
         </div>
     );
 };
