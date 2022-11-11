@@ -1,6 +1,9 @@
 import React from 'react';
 
 const EmployeeID = ({ setEmployeeID, employeeID, allEmployees, title }) => {
+    const foundEmployee = allEmployees.filter(
+        (emp) => emp.employeeID === Number(employeeID)
+    );
     return (
         <>
             <h2 style={{ margin: '1.2rem' }}>{title}</h2>
@@ -15,16 +18,10 @@ const EmployeeID = ({ setEmployeeID, employeeID, allEmployees, title }) => {
             {employeeID ? (
                 <p style={{ color: 'green' }}>
                     Hello{' '}
-                    {allEmployees.filter(
-                        (emp) => emp.employeeID === Number(employeeID)
-                    ).length
-                        ? allEmployees.filter(
-                              (emp) => emp.employeeID === Number(employeeID)
-                          )[0].firstname +
+                    {foundEmployee.length
+                        ? foundEmployee[0].firstname +
                           ' ' +
-                          allEmployees.filter(
-                              (emp) => emp.employeeID === Number(employeeID)
-                          )[0].lastname
+                          foundEmployee[0].lastname
                         : 'Stranger'}
                 </p>
             ) : null}

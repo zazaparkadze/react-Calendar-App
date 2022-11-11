@@ -23,7 +23,12 @@ const CancelButton = ({
                 });
                 setDuration(1);
                 setSubject('');
-                setNewAppointment({});
+                setNewAppointment({
+                    id: 0,
+                    startTime: '',
+                    endTime: '',
+                    subject: '',
+                });
             }}
         >
             Make Change

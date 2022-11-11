@@ -49,16 +49,16 @@ const Vacations = ({
                 endTime: format(
                     endOfDay(
                         add(new Date(...Object.values(startTime)), {
-                            days: durationDay,
+                            days: durationDay - 1,
                         })
                     ),
                     'HH:mm:ss dd/MM/yyyy'
                 ),
-                subject: durationDay.concat(
-                    Number(durationDay) === 1
+                subject:
+                    durationDay +
+                    (Number(durationDay) === 1
                         ? ' Day Vacation'
-                        : ' Days Vacation'
-                ),
+                        : ' Days Vacation'),
             });
             setVac(true);
         }

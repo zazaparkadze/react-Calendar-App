@@ -21,7 +21,6 @@ const AddNewAppointment = ({
     setEmployeeID,
     duration,
     setDuration,
-    setDurationDay,
     newAppointment,
     setNewAppointment,
     subject,
@@ -80,7 +79,6 @@ const AddNewAppointment = ({
                         startTime={startTime}
                         setStartTime={setStartTime}
                         setDuration={setDuration}
-                        setDurationDay={setDurationDay}
                         employeeID={employeeID}
                         newAppointment={newAppointment}
                         schedule={schedule}

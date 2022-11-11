@@ -126,7 +126,6 @@ function App() {
                             setEmployeeID={setEmployeeID}
                             duration={duration}
                             setDuration={setDuration}
-                            setDurationDay={setDurationDay}
                             subject={subject}
                             setSubject={setSubject}
                             newAppointment={newAppointment}
