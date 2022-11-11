@@ -1,4 +1,4 @@
-import { formatISO, add } from 'date-fns/esm';
+import { formatISO, add, startOfDay, endOfDay } from 'date-fns/esm';
 import apiReguest from '../config/apiRequest';
 const updateSchedule = async (
     employeeID,
@@ -24,22 +24,33 @@ const updateSchedule = async (
             (e) => e.name === foundEmployeeName
         );
         // converting to ISO format
-        const addminutes = {
+        const addMinutes = {
             minutes: duration,
         };
-        const adddays = {
+        const addDays = {
             days: duration - 1,
         };
 
         const newAppointmentFORMATISO = {
             ...newAppointment,
-            startTime: formatISO(new Date(...Object.values(startTime))),
-            endTime: formatISO(
-                add(
-                    new Date(...Object.values(startTime)),
-                    vac ? adddays : addminutes
-                )
-            ),
+            startTime: vac
+                ? formatISO(startOfDay(new Date(...Object.values(startTime))))
+                : formatISO(new Date(...Object.values(startTime))),
+            endTime: vac
+                ? formatISO(
+                      endOfDay(
+                          add(
+                              new Date(...Object.values(startTime)),
+                              vac ? addDays : addMinutes
+                          )
+                      )
+                  )
+                : formatISO(
+                      add(
+                          new Date(...Object.values(startTime)),
+                          vac ? addDays : addMinutes
+                      )
+                  ),
         };
 
         foundNameSchedule.meetings = [

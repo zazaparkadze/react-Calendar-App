@@ -28,7 +28,7 @@ const AppList = ({ sch, schedule, setSchedule, schID }) => {
     };
     return (
         <ol>
-            {!sch.length && <p style={{ color: 'red' }}> No Appointment</p>}
+            {!sch.length && <p style={{ color: 'red' }}> No Appointments</p>}
             {sch.map((meeting) => (
                 <li
                     className='appointmentsList'

@@ -8,7 +8,7 @@ import DurationDays from './DurationDays';
 import ConfirmMessage from '../addNewAppointments/ConfirmMessage';
 import ConfirmDecline from '../addNewAppointments/ConfirmDecline';
 import { FaPlus } from 'react-icons/fa';
-import { format, add } from 'date-fns';
+import { format, add, startOfDay, endOfDay } from 'date-fns';
 
 const Vacations = ({
     employeeID,
@@ -38,19 +38,32 @@ const Vacations = ({
             );
 
             setNewAppointment({
-                id: foundNameEntry.meetings.length //foundNameEntry.meetings.length -- better solution
+                id: foundNameEntry.meetings.length
                     ? foundNameEntry.meetings[
                           foundNameEntry.meetings.length - 1
                       ].id + 1
                     : 1,
+                /*formatISO9075(
+                    startOfDay(new Date(...Object.values(startTime)))
+                ), */
                 startTime: format(
-                    new Date(...Object.values(startTime)),
+                    startOfDay(new Date(...Object.values(startTime))),
                     'HH:mm:ss dd/MM/yyyy'
                 ),
+                /* formatISO9075(
+                    endOfDay(
+                        add(new Date(...Object.values(startTime)), {
+                            days: durationDay - 1,
+                        })
+                    )
+                ), */
+
                 endTime: format(
-                    add(new Date(...Object.values(startTime)), {
-                        days: durationDay - 1,
-                    }),
+                    endOfDay(
+                        add(new Date(...Object.values(startTime)), {
+                            days: durationDay - 1,
+                        })
+                    ),
                     'HH:mm:ss dd/MM/yyyy'
                 ),
                 subject: durationDay + ' days Vacation',
