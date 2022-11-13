@@ -32,30 +32,27 @@ const ListAppointments = ({
                         <AppList
                             sch={sch.meetings.filter(
                                 (el) =>
-                                    sch.meetings.length &&
-                                    (el.subject
-                                        ? el.subject
-                                              .toLowerCase()
-                                              .includes(
-                                                  searchAppointment.toLowerCase()
-                                              )
-                                        : '' ||
-                                          format(
-                                              parseISO(el.startTime),
-                                              'HH:mm:ss  dd/MM/yyyy'
-                                          )
-                                              .toLowerCase()
-                                              .startsWith(
-                                                  searchAppointment.toLowerCase()
-                                              ) ||
-                                          format(
-                                              parseISO(el.endTime),
-                                              'HH:mm:ss  dd/MM/yyyy'
-                                          )
-                                              .toLowerCase()
-                                              .startsWith(
-                                                  searchAppointment.toLowerCase()
-                                              ))
+                                    el.subject
+                                        .toLowerCase()
+                                        .includes(
+                                            searchAppointment.toLowerCase()
+                                        ) ||
+                                    format(
+                                        parseISO(el.startTime),
+                                        'HH:mm:ss  dd/MM/yyyy'
+                                    )
+                                        .toLowerCase()
+                                        .startsWith(
+                                            searchAppointment.toLowerCase()
+                                        ) ||
+                                    format(
+                                        parseISO(el.endTime),
+                                        'HH:mm:ss  dd/MM/yyyy'
+                                    )
+                                        .toLowerCase()
+                                        .startsWith(
+                                            searchAppointment.toLowerCase()
+                                        )
                             )}
                             schedule={schedule}
                             setSchedule={setSchedule}

@@ -1,6 +1,8 @@
 import {
+    isSameDay,
     parseJSON,
     formatISO,
+    parseISO,
     areIntervalsOverlapping,
     min,
     max,
@@ -9,7 +11,7 @@ import {
     endOfDay,
 } from 'date-fns';
 
-const functionFreeIntervals = (schedule, employees) => {
+const handleFreeIntervals = (schedule, employees, currentDate) => {
     const employeesNames = [];
     for (let i = 0; i < employees.length; i++) {
         employeesNames[i] = employees[i].firstname;
@@ -17,18 +19,28 @@ const functionFreeIntervals = (schedule, employees) => {
     let selectedEmployeesSchedule = schedule.filter(
         (schedule) => employeesNames.indexOf(schedule.name) !== -1
     );
-
+    //
+    //
     function busyTimeGaps(schedule) {
         let intervals = [];
         let index = 0;
         for (let k = 0; k < schedule.length; k++) {
             for (let i = 0; i < schedule[k].meetings.length; i++) {
-                intervals[index] = {
-                    id: schedule[k].meetings[i].id,
-                    startTime: parseJSON(schedule[k].meetings[i].startTime),
-                    endTime: parseJSON(schedule[k].meetings[i].endTime),
-                };
-                index++;
+                //
+                if (
+                    isSameDay(
+                        parseISO(schedule[k].meetings[i].endTime),
+                        parseISO(currentDate)
+                    )
+                ) {
+                    intervals[index] = {
+                        id: schedule[k].meetings[i].id,
+                        startTime: parseJSON(schedule[k].meetings[i].startTime),
+                        endTime: parseJSON(schedule[k].meetings[i].endTime),
+                    };
+                    //
+                    index++;
+                }
             }
         }
 
@@ -69,6 +81,16 @@ const functionFreeIntervals = (schedule, employees) => {
     const intervals = busyTimeGaps(selectedEmployeesSchedule);
     const freeTimeGaps = (intervals) => {
         const arr = [];
+        //
+        if (intervals.length === 0) {
+            arr[0] = {
+                id: 1000,
+                startTime: startOfDay(parseISO(currentDate)),
+                endTime: endOfDay(parseISO(currentDate)),
+            };
+            return arr;
+        }
+        //
         arr[0] = {
             id: 0,
             startTime: startOfDay(intervals[0].startTime), //startTime's start of the day
@@ -86,6 +108,7 @@ const functionFreeIntervals = (schedule, employees) => {
             startTime: intervals[intervals.length - 1].endTime, //endTimes's end of the day
             endTime: endOfDay(intervals[intervals.length - 1].endTime),
         };
+
         return arr;
     };
     const freeIntervals = freeTimeGaps(intervals);
@@ -98,7 +121,15 @@ const functionFreeIntervals = (schedule, employees) => {
     }
 
     handleISOFormatting(freeIntervals);
+    if (
+        freeIntervals[0].startTime.includes('00:00:00') &&
+        freeIntervals[0].endTime.includes('00:00:00') &&
+        freeIntervals[1].startTime.includes('23:59:59') &&
+        freeIntervals[1].endTime.includes('23:59:59')
+    ) {
+        return [];
+    }
     return freeIntervals;
 };
 
-export default functionFreeIntervals;
+export default handleFreeIntervals;

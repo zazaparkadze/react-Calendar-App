@@ -1,19 +1,14 @@
 import React from 'react';
-import { useState } from 'react';
 
-const SelectDate = () => {
-    // const [currentDate, setCurrentDate] = useState('');
-    // console.log(currentDate);
+const SelectDate = ({ currentDate, setCurrentDate }) => {
     return (
         <div>
-            <label>Selected Date</label>
+            <label>Select Date</label>
             <input
                 type='Date'
-                //           onChange={(e) => setCurrentDate(e.target.value)}
+                value={currentDate}
+                onChange={(e) => setCurrentDate(e.target.value)}
             />
-            <small style={{ fontSize: '10px' }}>
-                working on it, but not necessary
-            </small>
         </div>
     );
 };

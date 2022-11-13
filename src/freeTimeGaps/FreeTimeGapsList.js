@@ -7,13 +7,16 @@ const FreeTimeGapsList = ({ freeTimeGaps }) => {
                 Free Time Gaps List
             </h2>
             <ol>
+                {!freeTimeGaps.length && (
+                    <p style={{ color: 'red' }}>
+                        No Time Available for Specified Date
+                    </p>
+                )}
                 {freeTimeGaps.map((el) => (
-                    //    console.log(el.id),
                     <li key={el.id} style={{ color: 'green' }}>
-                        {el.startTime} {el.endTime}
+                        {el.startTime} - {el.endTime}
                     </li>
                 ))}
-                <p>---- &copy; here must be a diagram</p>
             </ol>
         </div>
     );
