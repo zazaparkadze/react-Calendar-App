@@ -1,5 +1,5 @@
-import apiReguest from '../../config/apiRequest';
-import { API_URI_employee, API_URI_schedule } from '../../config/API_URI_DB';
+import apiReguest from '../config/apiRequest';
+import { API_URI_employee, API_URI_schedule } from '../config/API_URI_DB';
 
 const handleNewEmployee = async (
     newEmployee,
@@ -15,6 +15,7 @@ const handleNewEmployee = async (
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
         body: JSON.stringify(newEmployee),
     };
@@ -35,6 +36,7 @@ const handleNewEmployee = async (
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
         body: JSON.stringify(newEmployeeNameEntry),
     };

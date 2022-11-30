@@ -14,6 +14,7 @@ const handleLogIn = async (username, password, login, setLogin) => {
     const response = await fetch(`${API_URI_myServer}auth`, requestOptions);
     if (!response?.ok) throw new Error('not authorized');
     const res = await response.json();
-    res.accessToken.length === 204 && setLogin(true);
+    localStorage.setItem('accessToken', res.accessToken);
+    setLogin(true);
 };
 export default handleLogIn;

@@ -21,6 +21,10 @@ const AppList = ({ sch, schedule, setSchedule, schID }) => {
 
         const updateOptions = {
             method: 'DELETE',
+            headers: {
+                Content_type: 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
         };
 
         await apiRequest(

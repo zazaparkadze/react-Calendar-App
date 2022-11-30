@@ -10,6 +10,8 @@ import FreeTimeGaps from './freeTimeGaps/FreeTimeGaps';
 import Vacations from './vacations/Vacations';
 import Admin from './admin/Admin';
 import photo from './img/katan.jpg';
+import Auth from './admin/Auth';
+import Register from './admin/Register';
 
 function App() {
     const [employeeID, setEmployeeID] = useState('');
@@ -38,10 +40,23 @@ function App() {
         subject: '',
     });
 
+    const [login, setLogin] = useState(false);
+    const [registration, setRegistration] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [registered, setRegistered] = useState('zaza.....');
+
     useEffect(() => {
         const fetchInfo = async (uri) => {
             try {
-                const response = await fetch(uri);
+                const response = await fetch(uri, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'accessToken'
+                        )}`,
+                    },
+                });
                 if (!response.ok)
                     throw new Error('Did not receive expected data');
                 const data = await response.json();
@@ -66,142 +81,176 @@ function App() {
     return (
         <div className='App'>
             {!isLoading && !fetchError && <Header />}
-            <Routes>
-                <Route
-                    path='/'
-                    element={
-                        <>
-                            <Nav />
-                            <img src={photo} alt='mishka' />
-                        </>
-                    }
+            {!login && !registration ? (
+                <Auth
+                    username={username}
+                    setUsername={setUsername}
+                    password={password}
+                    setPassword={setPassword}
+                    login={login}
+                    setLogin={setLogin}
+                    setRegistration={setRegistration}
+                    registered={registered}
                 />
-                <Route
-                    path='/listAppointments'
-                    element={
-                        <>
-                            {isLoading && (
-                                <p style={{ fontSize: '3rem' }}>Loading...</p>
-                            )}
-                            {fetchError && (
+            ) : !login && registration ? (
+                <Register
+                    username={username}
+                    setUsername={setUsername}
+                    password={password}
+                    setPassword={setPassword}
+                    setRegistration={setRegistration}
+                    setRegistered={setRegistered}
+                    registered={registered}
+                />
+            ) : (
+                <>
+                    <Routes>
+                        <Route
+                            path='/'
+                            element={
                                 <>
-                                    <p
-                                        style={{ color: 'red' }}
-                                    >{`Error: ${fetchError}`}</p>
-                                    <p>reload the app</p>
+                                    <Nav />
+                                    <img src={photo} alt='mishka' />
                                 </>
-                            )}
-
-                            {!fetchError && !isLoading && (
-                                <ListAppointments
-                                    schedule={schedule.filter((el) =>
-                                        el.name
-                                            .toLowerCase()
-                                            .includes(
-                                                searchAppointmentName.toLowerCase()
-                                            )
-                                    )}
-                                    setSchedule={setSchedule}
-                                    searchAppointmentName={
-                                        searchAppointmentName
-                                    }
-                                    setSearchAppointmentName={
-                                        setSearchAppointmentName
-                                    }
-                                />
-                            )}
-                        </>
-                    }
-                />
-                <Route
-                    path='/addNewAppointment'
-                    element={
-                        <AddNewAppointment
-                            schedule={schedule}
-                            setSchedule={setSchedule}
-                            allEmployees={allEmployees}
-                            startTime={startTime}
-                            setStartTime={setStartTime}
-                            employeeID={employeeID}
-                            setEmployeeID={setEmployeeID}
-                            duration={duration}
-                            setDuration={setDuration}
-                            subject={subject}
-                            setSubject={setSubject}
-                            newAppointment={newAppointment}
-                            setNewAppointment={setNewAppointment}
-                            API_URI_schedule={API_URI_schedule}
-                            setFetchError={setFetchError}
-                            vac={vac}
-                            setVac={setVac}
+                            }
                         />
-                    }
-                />
-
-                <Route
-                    path='/freeTimeGaps'
-                    element={
-                        <>
-                            {isLoading && (
-                                <p style={{ fontSize: '3rem' }}>Loading...</p>
-                            )}
-                            {fetchError && (
+                        <Route
+                            path='/listAppointments'
+                            element={
                                 <>
-                                    <p
-                                        style={{ color: 'red' }}
-                                    >{`Error: ${fetchError}`}</p>
-                                    <p>reload the app</p>
+                                    {isLoading && (
+                                        <p style={{ fontSize: '3rem' }}>
+                                            Loading...
+                                        </p>
+                                    )}
+                                    {fetchError && (
+                                        <>
+                                            <p
+                                                style={{ color: 'red' }}
+                                            >{`Error: ${fetchError}`}</p>
+                                            <p>reload the app</p>
+                                        </>
+                                    )}
+
+                                    {!fetchError && !isLoading && (
+                                        <ListAppointments
+                                            schedule={schedule.filter((el) =>
+                                                el.name
+                                                    .toLowerCase()
+                                                    .includes(
+                                                        searchAppointmentName.toLowerCase()
+                                                    )
+                                            )}
+                                            setSchedule={setSchedule}
+                                            searchAppointmentName={
+                                                searchAppointmentName
+                                            }
+                                            setSearchAppointmentName={
+                                                setSearchAppointmentName
+                                            }
+                                        />
+                                    )}
                                 </>
-                            )}
-                            {!isLoading && !fetchError && (
-                                <FreeTimeGaps
-                                    allEmployees={allEmployees}
+                            }
+                        />
+                        <Route
+                            path='/addNewAppointment'
+                            element={
+                                <AddNewAppointment
                                     schedule={schedule}
+                                    setSchedule={setSchedule}
+                                    allEmployees={allEmployees}
                                     startTime={startTime}
                                     setStartTime={setStartTime}
+                                    employeeID={employeeID}
+                                    setEmployeeID={setEmployeeID}
+                                    duration={duration}
                                     setDuration={setDuration}
+                                    subject={subject}
                                     setSubject={setSubject}
+                                    newAppointment={newAppointment}
                                     setNewAppointment={setNewAppointment}
+                                    API_URI_schedule={API_URI_schedule}
+                                    setFetchError={setFetchError}
+                                    vac={vac}
+                                    setVac={setVac}
                                 />
-                            )}
-                        </>
-                    }
-                />
-                <Route
-                    path='/vacations'
-                    element={
-                        <Vacations
-                            schedule={schedule}
-                            allEmployees={allEmployees}
-                            startTime={startTime}
-                            setStartTime={setStartTime}
-                            employeeID={employeeID}
-                            setEmployeeID={setEmployeeID}
-                            durationDay={durationDay}
-                            setDurationDay={setDurationDay}
-                            newAppointment={newAppointment}
-                            setNewAppointment={setNewAppointment}
-                            setSubject={setSubject}
-                            API_URI_schedule={API_URI_schedule}
-                            setFetchError={setFetchError}
-                            vac={vac}
-                            setVac={setVac}
+                            }
                         />
-                    }
-                />
-                <Route path='/announcements' element={<Announcements />} />
-                <Route
-                    path='/admin'
-                    element={
-                        <Admin
-                            allEmployees={allEmployees}
-                            setAllEmployees={setAllEmployees}
-                            schedule={schedule}
-                            setSchedule={setSchedule}
+
+                        <Route
+                            path='/freeTimeGaps'
+                            element={
+                                <>
+                                    {isLoading && (
+                                        <p style={{ fontSize: '3rem' }}>
+                                            Loading...
+                                        </p>
+                                    )}
+                                    {fetchError && (
+                                        <>
+                                            <p
+                                                style={{ color: 'red' }}
+                                            >{`Error: ${fetchError}`}</p>
+                                            <p>reload the app</p>
+                                        </>
+                                    )}
+                                    {!isLoading && !fetchError && (
+                                        <FreeTimeGaps
+                                            allEmployees={allEmployees}
+                                            schedule={schedule}
+                                            startTime={startTime}
+                                            setStartTime={setStartTime}
+                                            setDuration={setDuration}
+                                            setSubject={setSubject}
+                                            setNewAppointment={
+                                                setNewAppointment
+                                            }
+                                        />
+                                    )}
+                                </>
+                            }
                         />
-                    }
-                />
-            </Routes>
+                        <Route
+                            path='/vacations'
+                            element={
+                                <Vacations
+                                    schedule={schedule}
+                                    allEmployees={allEmployees}
+                                    startTime={startTime}
+                                    setStartTime={setStartTime}
+                                    employeeID={employeeID}
+                                    setEmployeeID={setEmployeeID}
+                                    durationDay={durationDay}
+                                    setDurationDay={setDurationDay}
+                                    newAppointment={newAppointment}
+                                    setNewAppointment={setNewAppointment}
+                                    setSubject={setSubject}
+                                    API_URI_schedule={API_URI_schedule}
+                                    setFetchError={setFetchError}
+                                    vac={vac}
+                                    setVac={setVac}
+                                />
+                            }
+                        />
+                        <Route
+                            path='/announcements'
+                            element={<Announcements />}
+                        />
+                        <Route
+                            path='/admin'
+                            element={
+                                <Admin
+                                    allEmployees={allEmployees}
+                                    setAllEmployees={setAllEmployees}
+                                    schedule={schedule}
+                                    setSchedule={setSchedule}
+                                />
+                            }
+                        />
+                    </Routes>
+                </>
+            )}
         </div>
     );
 }

@@ -1,24 +1,19 @@
 import React from 'react';
-import handleLogIn from './handleLogIn';
-import { Link } from 'react-router-dom';
+import handleRegister from './handleRegister.js';
+import { useNavigate } from 'react-router-dom';
 
-const Auth = ({
-    login,
-    setLogin,
-    username,
-    setPassword,
-    setUsername,
+const Register = ({
     password,
+    setPassword,
+    username,
+    setUsername,
     setRegistration,
     registered,
+    setRegistered,
 }) => {
+    const navigate = useNavigate();
     return (
         <form className='App' onSubmit={(e) => e.preventDefault()}>
-            {registered === 'Registered' && (
-                <p style={{ color: 'green' }}>
-                    You have {registered} successfully
-                </p>
-            )}
             <label>username</label>
             <input
                 id='username'
@@ -33,21 +28,23 @@ const Auth = ({
                 type='text'
                 onChange={(e) => setPassword(e.target.value)} // check
             />
-            <label>submit</label>
+            <label>register</label>
             <button
-                onClick={() => handleLogIn(username, password, login, setLogin)}
+                onClick={() => {
+                    handleRegister(
+                        username,
+                        password,
+                        registered,
+                        setRegistered
+                    );
+                    setRegistration(false);
+                    navigate(-1);
+                }}
             >
-                Log in
+                register
             </button>
-            <Link
-                className='Link'
-                to='/registration'
-                onClick={() => setRegistration(true)}
-            >
-                <p>Registration</p>
-            </Link>
         </form>
     );
 };
 
-export default Auth;
+export default Register;
