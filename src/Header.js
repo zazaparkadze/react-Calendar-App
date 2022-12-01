@@ -7,10 +7,15 @@ const Header = ({ username, login, setLogin }) => {
             <h2> Time</h2>
             <p>
                 {' '}
-                Copyright &copy; {new Date().getFullYear()} Hello
-                {login ? ' ' + username : '  Stranger'}
+                {/* Copyright &copy; {new Date().getFullYear()} */}
+                Hello
+                {login ? ' ' + username : '  ...'}
                 <button
-                    style={{ color: 'white', backgroundColor: 'black' }}
+                    style={{
+                        color: 'white',
+                        backgroundColor: 'black',
+                        marginRight: '0.5rem',
+                    }}
                     onClick={() => handleLogout(setLogin)}
                 >
                     {' '}

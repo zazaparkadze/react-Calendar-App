@@ -15,6 +15,7 @@ const handleLogIn = async (username, password, setLogin) => {
     if (!response?.ok) throw new Error('not authorized');
     const res = await response.json();
     localStorage.setItem('accessToken', res.accessToken);
+    localStorage.setItem('roles', res.roles);
     setLogin(true);
 };
 export default handleLogIn;
