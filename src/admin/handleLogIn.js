@@ -1,6 +1,6 @@
 import { API_URI_myServer } from '../config/API_URI_DB';
 
-const handleLogIn = async (username, password, login, setLogin) => {
+const handleLogIn = async (username, password, setLogin) => {
     const requestOptions = {
         method: 'POST',
         headers: {

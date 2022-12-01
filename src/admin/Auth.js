@@ -34,9 +34,7 @@ const Auth = ({
                 onChange={(e) => setPassword(e.target.value)} // check
             />
             <label>submit</label>
-            <button
-                onClick={() => handleLogIn(username, password, login, setLogin)}
-            >
+            <button onClick={() => handleLogIn(username, password, setLogin)}>
                 Log in
             </button>
             <Link

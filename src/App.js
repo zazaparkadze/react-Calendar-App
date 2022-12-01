@@ -44,7 +44,7 @@ function App() {
     const [registration, setRegistration] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [registered, setRegistered] = useState('zaza.....');
+    const [registered, setRegistered] = useState('');
 
     useEffect(() => {
         const fetchInfo = async (uri) => {
@@ -80,7 +80,9 @@ function App() {
 
     return (
         <div className='App'>
-            {!isLoading && !fetchError && <Header />}
+            {!isLoading && !fetchError && (
+                <Header username={username} login={login} setLogin={setLogin} />
+            )}
             {!login && !registration ? (
                 <Auth
                     username={username}
