@@ -7,7 +7,6 @@ const Register = ({
     setPassword,
     username,
     setUsername,
-    setRegistration,
     registered,
     setRegistered,
 }) => {
@@ -37,7 +36,6 @@ const Register = ({
                         registered,
                         setRegistered
                     );
-                    setRegistration(false);
                     navigate(-1);
                 }}
             >

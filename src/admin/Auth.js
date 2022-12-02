@@ -6,14 +6,15 @@ const Auth = ({
     login,
     setLogin,
     username,
-    setPassword,
     setUsername,
     password,
-    setRegistration,
+    setPassword,
     registered,
+    auth,
+    setAuth,
 }) => {
     return (
-        <form className='App' onSubmit={(e) => e.preventDefault()}>
+        <form className='App'>
             {registered === 'Registered' && (
                 <p style={{ color: 'green' }}>
                     You have {registered} successfully
@@ -34,16 +35,26 @@ const Auth = ({
                 onChange={(e) => setPassword(e.target.value)} // check
             />
             <label>submit</label>
-            <button onClick={() => handleLogIn(username, password, setLogin)}>
-                Log in
-            </button>
-            <Link
-                className='Link'
-                to='/registration'
-                onClick={() => setRegistration(true)}
-            >
+            <Link to='/nav'>
+                <button
+                    onClick={() =>
+                        handleLogIn(
+                            username,
+                            setUsername,
+                            password,
+                            setPassword,
+                            setLogin,
+                            setAuth
+                        )
+                    }
+                >
+                    Log in
+                </button>
+            </Link>
+            <Link className='Link' to='/registration'>
                 <p>Registration</p>
             </Link>
+            <p>Please, fill all fields</p>
         </form>
     );
 };

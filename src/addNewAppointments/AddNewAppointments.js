@@ -58,7 +58,6 @@ const AddNewAppointment = ({
                             duration,
                             subject,
                             setNewAppointment,
-                            vac,
                             setVac
                         );
                     }}

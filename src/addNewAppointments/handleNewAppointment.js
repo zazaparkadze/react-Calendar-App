@@ -8,7 +8,6 @@ const handleNewAppointment = (
     duration,
     subject,
     setNewAppointment,
-    vac,
     setVac
 ) => {
     const foundEmployee = allEmployees.find(

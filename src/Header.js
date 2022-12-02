@@ -1,26 +1,31 @@
 import React from 'react';
 import handleLogout from './admin/handleLogout';
+import { Link } from 'react-router-dom';
 
-const Header = ({ username, login, setLogin }) => {
+const Header = ({ username, setUsername, setPassword, login, setLogin }) => {
     return (
         <header>
             <h2> Time</h2>
             <p>
-                {' '}
-                {/* Copyright &copy; {new Date().getFullYear()} */}
                 Hello
                 {login ? ' ' + username : '  ...'}
-                <button
-                    style={{
-                        color: 'white',
-                        backgroundColor: 'black',
-                        marginRight: '0.5rem',
-                    }}
-                    onClick={() => handleLogout(setLogin)}
-                >
-                    {' '}
-                    logout
-                </button>
+                <Link to='/'>
+                    <button
+                        style={{
+                            color: 'white',
+                            backgroundColor: 'black',
+                            marginRight: '0.5rem',
+                        }}
+                        onClick={() => {
+                            handleLogout(setLogin);
+                            setUsername('');
+                            setPassword('');
+                        }}
+                    >
+                        {' '}
+                        logout
+                    </button>
+                </Link>
             </p>
         </header>
     );
