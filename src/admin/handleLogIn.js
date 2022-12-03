@@ -6,7 +6,8 @@ const handleLogIn = async (
     password,
     setPassword,
     setLogin,
-    setAuth
+    setAuth,
+    setRegistered
 ) => {
     const requestOptions = {
         method: 'POST',
@@ -23,14 +24,17 @@ const handleLogIn = async (
         setUsername('');
         setPassword('');
         //throw new Error('not authorized');
-        console.log('....un');
+        console.log('....unauthorized');
         setAuth(false);
+        setRegistered('');
     } else {
         const res = await response.json();
         localStorage.setItem('accessToken', res.accessToken);
         localStorage.setItem('roles', res.roles);
         setLogin(true);
-        console.log('zaza');
+        setRegistered('');
+        console.log('logged in');
+        console.log(response);
     }
 };
 export default handleLogIn;

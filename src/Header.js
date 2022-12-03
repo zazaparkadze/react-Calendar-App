@@ -6,9 +6,11 @@ const Header = ({ username, setUsername, setPassword, login, setLogin }) => {
     return (
         <header>
             <h2> Time</h2>
-            <p>
+            <p style={{ color: 'gold' }}>
                 Hello
-                {login ? ' ' + username : '  ...'}
+                {login
+                    ? ' ' + username.charAt(0).toUpperCase() + username.slice(1)
+                    : '  Guest'}
                 <Link to='/'>
                     <button
                         style={{

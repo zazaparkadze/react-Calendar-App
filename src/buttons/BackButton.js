@@ -51,6 +51,8 @@ BackButton.defaultProps = {
     startTime: undefined,
     setStartTime: undefined,
     setDuration: undefined,
+    setSubject: undefined,
+    setNewAppointment: undefined,
 };
 
 export default BackButton;

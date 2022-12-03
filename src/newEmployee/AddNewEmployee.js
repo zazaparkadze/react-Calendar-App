@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import ConfirmDeclineEmployee from './ConfirmDeclineEmployee';
+import { useNavigate } from 'react-router-dom';
 
 const AddNewEmployee = ({
     allEmployees,
@@ -14,7 +15,7 @@ const AddNewEmployee = ({
         lastname: '',
         employeeID: 0,
     });
-
+    const navigate = useNavigate();
     return (
         <form className='App' onSubmit={(e) => e.preventDefault()}>
             <h3>AddNewEmployee</h3>
@@ -104,6 +105,9 @@ const AddNewEmployee = ({
                 schedule={schedule}
                 setSchedule={setSchedule}
             />
+            <button className='backButtonShape' onClick={() => navigate(-1)}>
+                Back
+            </button>
         </form>
     );
 };

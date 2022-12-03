@@ -117,6 +117,7 @@ const Vacations = ({
                 setStartTime={setStartTime}
                 setDuration={setDurationDay} /* important */
                 setSubject={setSubject}
+                setNewAppointment={setNewAppointment}
             />
         </>
     );

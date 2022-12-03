@@ -3,15 +3,14 @@ import handleLogIn from './handleLogIn';
 import { Link } from 'react-router-dom';
 
 const Auth = ({
-    login,
     setLogin,
     username,
     setUsername,
     password,
     setPassword,
     registered,
-    auth,
     setAuth,
+    setRegistered,
 }) => {
     return (
         <form className='App'>
@@ -44,7 +43,8 @@ const Auth = ({
                             password,
                             setPassword,
                             setLogin,
-                            setAuth
+                            setAuth,
+                            setRegistered
                         )
                     }
                 >

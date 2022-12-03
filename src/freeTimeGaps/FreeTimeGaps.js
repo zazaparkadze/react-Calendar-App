@@ -44,13 +44,7 @@ const FreeTimeGaps = ({
                 currentDate={currentDate}
             />
             <FreeTimeGapsList freeTimeGaps={freeTimeGaps} />
-            <BackButton
-                startTime={startTime}
-                setStartTime={setStartTime}
-                setDuration={setDuration}
-                setSubject={setSubject}
-                setNewAppointment={setNewAppointment}
-            />
+            <BackButton />
         </div>
     );
 };
