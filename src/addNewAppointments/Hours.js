@@ -1,7 +1,9 @@
 import React from 'react';
 import { hours } from '../config/datesTimesInfo';
-
-const Hours = ({ setStartTime, startTime }) => {
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
+const Hours = () => {
+    const { setStartTime, startTime } = useContext(DataContext);
     return (
         <>
             <label>Choose Start Date and Time</label>

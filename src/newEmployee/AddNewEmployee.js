@@ -1,20 +1,14 @@
 import React from 'react';
-import { useState } from 'react';
 import ConfirmDeclineEmployee from './ConfirmDeclineEmployee';
 import { useNavigate } from 'react-router-dom';
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const AddNewEmployee = ({
-    allEmployees,
-    setAllEmployees,
-    schedule,
-    setSchedule,
-}) => {
-    const [newEmployee, setNewEmployee] = useState({
-        id: 0,
-        firstname: '',
-        lastname: '',
-        employeeID: 0,
-    });
+const AddNewEmployee = () => {
+    const { newEmployee, setNewEmployee } = useContext(DataContext);
+    const { allEmployees } = useContext(AppContext);
+
     const navigate = useNavigate();
     return (
         <form className='App' onSubmit={(e) => e.preventDefault()}>
@@ -98,12 +92,8 @@ const AddNewEmployee = ({
                     : 1720}{' '}
             </p>
             <ConfirmDeclineEmployee
-                allEmployees={allEmployees}
-                setAllEmployees={setAllEmployees}
                 newEmployee={newEmployee}
                 setNewEmployee={setNewEmployee}
-                schedule={schedule}
-                setSchedule={setSchedule}
             />
             <button className='backButtonShape' onClick={() => navigate(-1)}>
                 Back

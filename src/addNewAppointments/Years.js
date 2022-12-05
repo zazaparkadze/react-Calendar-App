@@ -1,6 +1,10 @@
 import React from 'react';
 import { years } from '../config/datesTimesInfo';
-const Years = ({ startTime, setStartTime }) => {
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
+
+const Years = () => {
+    const { startTime, setStartTime } = useContext(DataContext);
     return (
         <>
             <label>Year</label>

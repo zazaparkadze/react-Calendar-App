@@ -1,14 +1,13 @@
 import React from 'react';
 import handleNewEmployee from './handleNewEmployee';
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const NewEmployeeOkButton = ({
-    newEmployee,
-    setNewEmployee,
-    allEmployees,
-    setAllEmployees,
-    schedule,
-    setSchedule,
-}) => {
+const NewEmployeeOkButton = () => {
+    const { newEmployee, setNewEmployee } = useContext(DataContext);
+    const { allEmployees, setAllEmployees, schedule, setSchedule } =
+        useContext(AppContext);
     return (
         <button
             className='confirm'

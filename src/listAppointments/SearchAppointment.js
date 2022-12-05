@@ -1,6 +1,9 @@
 import React from 'react';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const SearchAppointment = ({ searchAppointment, setSearchAppointment }) => {
+const SearchAppointment = () => {
+    const { searchAppointment, setSearchAppointment } = useContext(DataContext);
     return (
         <form
             className='searchAppointment'
@@ -13,7 +16,9 @@ const SearchAppointment = ({ searchAppointment, setSearchAppointment }) => {
                 type='text'
                 value={searchAppointment}
                 placeholder='Date, Subject'
-                onChange={(e) => setSearchAppointment(e.target.value)}
+                onChange={(e) => {
+                    setSearchAppointment(e.target.value);
+                }}
             />
         </form>
     );

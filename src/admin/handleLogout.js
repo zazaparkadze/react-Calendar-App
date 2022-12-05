@@ -5,10 +5,7 @@ const handleLogout = async (setLogin) => {
     const url = `${API_URI_myServer}logout`;
     const logoutOptions = {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
+           };
     const response = await apiReguest(url, logoutOptions);
     localStorage.setItem('accessToken', '');
     setLogin(false);

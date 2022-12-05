@@ -1,6 +1,9 @@
 import React from 'react';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const NewEmployeeCancelButton = ({ setNewEmployee }) => {
+const NewEmployeeCancelButton = () => {
+    const { setNewEmployee } = useContext(DataContext);
     return (
         <button
             className='makeChange'

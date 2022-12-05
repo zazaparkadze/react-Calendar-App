@@ -9,24 +9,21 @@ import ConfirmMessage from '../addNewAppointments/ConfirmMessage';
 import ConfirmDecline from '../addNewAppointments/ConfirmDecline';
 import { FaPlus } from 'react-icons/fa';
 import { format, add, startOfDay, endOfDay } from 'date-fns';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
+import { AppContext } from '../App';
 
-const Vacations = ({
-    employeeID,
-    allEmployees,
-    schedule,
-    startTime,
-    durationDay,
-    setNewAppointment,
-    setStartTime,
-    setEmployeeID,
-    setDurationDay,
-    newAppointment,
-    setSubject,
-    API_URI_schedule,
-    setFetchError,
-    vac,
-    setVac,
-}) => {
+const Vacations = () => {
+    const {
+        employeeID,
+        startTime,
+        durationDay,
+        setNewAppointment,
+        setDurationDay,
+        newAppointment,
+        setVac,
+    } = useContext(DataContext);
+    const { allEmployees, schedule } = useContext(AppContext);
     const handleNewVacation = (employeeID) => {
         const foundEmployee = allEmployees.find(
             (e) => e.employeeID === Number(employeeID)
@@ -69,56 +66,25 @@ const Vacations = ({
             <label htmlFor='vacation'>
                 Enter Details of Your Future vecation
             </label>
-            <EmployeeID
-                setEmployeeID={setEmployeeID}
-                employeeID={employeeID}
-                allEmployees={allEmployees}
-                title={'Vacation'}
-            />
-            <Days startTime={startTime} setStartTime={setStartTime} />
-            <Months startTime={startTime} setStartTime={setStartTime} />
-            <Years startTime={startTime} setStartTime={setStartTime} />
-            <DurationDays
-                durationDay={durationDay}
-                setDurationDay={setDurationDay}
-            />
+            <EmployeeID title={'Vacation'} />
+            <Days />
+            <Months />
+            <Years />
+            <DurationDays />
             <FaPlus
                 className='button'
                 onClick={() => handleNewVacation(employeeID)}
             />
-            <ConfirmMessage
-                newAppointment={newAppointment}
-                setStartTime={setStartTime}
-                startTime={startTime}
-                setDuration={setDurationDay}
-            />
+            <ConfirmMessage />
             {newAppointment.id ? (
                 <ConfirmDecline
-                    startTime={startTime}
-                    setStartTime={setStartTime}
-                    setDuration={setDurationDay} /* important */
-                    employeeID={employeeID}
                     duration={durationDay}
-                    newAppointment={newAppointment}
-                    schedule={schedule}
-                    allEmployees={allEmployees}
-                    setSubject={setSubject}
-                    setNewAppointment={setNewAppointment}
-                    API_URI_schedule={API_URI_schedule}
-                    setFetchError={setFetchError}
-                    vac={vac}
-                    setVac={setVac}
+                    setDuration={setDurationDay} /* important */
                 />
             ) : (
                 <p>Please, fill all fields!</p>
             )}
-            <BackButton
-                startTime={startTime}
-                setStartTime={setStartTime}
-                setDuration={setDurationDay} /* important */
-                setSubject={setSubject}
-                setNewAppointment={setNewAppointment}
-            />
+            <BackButton />
         </>
     );
 };

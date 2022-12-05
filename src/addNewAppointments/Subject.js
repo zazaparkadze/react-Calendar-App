@@ -1,6 +1,8 @@
 import React from 'react';
-
-const Subject = ({ subject, setSubject }) => {
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
+const Subject = () => {
+    const { subject, setSubject } = useContext(DataContext);
     return (
         <>
             <label>Subject</label>

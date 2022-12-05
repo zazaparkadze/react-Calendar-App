@@ -1,7 +1,10 @@
 import React from 'react';
 import { days } from '../config/datesTimesInfo';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const Days = ({ startTime, setStartTime }) => {
+const Days = () => {
+    const { startTime, setStartTime } = useContext(DataContext);
     return (
         <>
             <label htmlFor='day'>Day</label>

@@ -1,22 +1,24 @@
 import React from 'react';
 import updateSchedule from './updateSchedule';
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const OkButton = ({
-    employeeID,
-    newAppointment,
-    setNewAppointment,
-    setSubject,
-    schedule,
-    allEmployees,
-    setStartTime,
-    setDuration,
-    startTime,
-    duration,
-    API_URI_schedule,
-    setFetchError,
-    vac,
-    setVac,
-}) => {
+const OkButton = () => {
+    const {
+        employeeID,
+        newAppointment,
+        setNewAppointment,
+        setSubject,
+        setStartTime,
+        setDuration,
+        startTime,
+        duration,
+        vac,
+        setVac,
+    } = useContext(DataContext);
+    const { schedule, setFetchError, allEmployees, API_URI_schedule } =
+        useContext(AppContext);
     return (
         <button
             className='confirm'

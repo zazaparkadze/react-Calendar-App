@@ -1,12 +1,15 @@
 import React from 'react';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const CancelButton = ({
-    setStartTime,
-    startTime,
-    setDuration,
-    setSubject,
-    setNewAppointment,
-}) => {
+const CancelButton = () => {
+    const {
+        setStartTime,
+        startTime,
+        setDuration,
+        setSubject,
+        setNewAppointment,
+    } = useContext(DataContext);
     return (
         <button
             className='makeChange'

@@ -1,13 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const BackButton = ({
-    startTime,
-    setStartTime,
-    setDuration,
-    setSubject,
-    setNewAppointment,
-}) => {
+const BackButton = () => {
+    const {
+        startTime,
+        setStartTime,
+        setDuration,
+        setSubject,
+        setNewAppointment,
+    } = useContext(DataContext);
     const navigate = useNavigate();
     return (
         <div className='backButtonPosition'>

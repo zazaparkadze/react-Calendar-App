@@ -1,7 +1,10 @@
 import React from 'react';
 import { durations } from '../config/datesTimesInfo';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const Duration = ({ setDuration, duration }) => {
+const Duration = () => {
+    const { setDuration, duration } = useContext(DataContext);
     return (
         <>
             <label>Duration</label>

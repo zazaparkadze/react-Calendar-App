@@ -5,10 +5,10 @@ import { FaTrashAlt } from 'react-icons/fa';
 import apiRequest from '../config/apiRequest';
 import { API_URI_schedule } from '../config/API_URI_DB';
 
-const AppList = ({ sch, schedule, setSchedule, schID }) => {
-    //console.log(sch);
+const AppList = ({ scheduleNameEntry, schedule, setSchedule, schID }) => {
+    //console.log(scheduleNameEntry);
     const handleDeleteAppointment = async (meetingid) => {
-        const filteredAppointments = sch.filter(
+        const filteredAppointments = scheduleNameEntry.meetings.filter(
             (e) => e.id !== Number(meetingid)
         );
         const foundNameEntry = schedule.find((e) => e.id === schID);
@@ -17,7 +17,7 @@ const AppList = ({ sch, schedule, setSchedule, schID }) => {
         const updatedSchedule = [...filteredSchedule, updated].sort(
             (a, b) => a.id - b.id
         );
-        setSchedule(updatedSchedule);
+        setSchedule(updatedSchedule); //
 
         const updateOptions = {
             method: 'DELETE',
@@ -34,8 +34,10 @@ const AppList = ({ sch, schedule, setSchedule, schID }) => {
     };
     return (
         <ol>
-            {!sch.length && <p style={{ color: 'red' }}> No Appointments</p>}
-            {sch.map((meeting) => (
+            {!scheduleNameEntry.meetings.length && (
+                <p style={{ color: 'red' }}> No Appointments</p>
+            )}
+            {scheduleNameEntry.meetings.map((meeting) => (
                 <li
                     className='appointmentsList'
                     key={meeting.id}

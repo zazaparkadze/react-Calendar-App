@@ -1,7 +1,9 @@
 import React from 'react';
 import { durationsDays } from '../config/datesTimesInfo';
-
-const DurationDays = ({ durationDay, setDurationDay }) => {
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
+const DurationDays = () => {
+    const { durationDay, setDurationDay } = useContext(DataContext);
     return (
         <>
             <label>Duration (Days)</label>

@@ -7,16 +7,12 @@ import FreeTimeGapsList from './FreeTimeGapsList';
 import SelectDate from './SelectDate';
 import { useState } from 'react';
 import { formatISO9075 } from 'date-fns';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const FreeTimeGaps = ({
-    allEmployees,
-    schedule,
-    startTime,
-    setStartTime,
-    setDuration,
-    setSubject,
-    setNewAppointment,
-}) => {
+const FreeTimeGaps = () => {
+    const { allEmployees, schedule } = useContext(AppContext);
+
     const [employees, setEmployees] = useState([]);
     const [freeTimeGaps, setFreeTimeGaps] = useState([]);
     const [currentDate, setCurrentDate] = useState(

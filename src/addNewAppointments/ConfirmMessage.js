@@ -1,6 +1,9 @@
 import React from 'react';
+import DataContext from '../Context/DataContext';
+import { useContext } from 'react';
 
-const ConfirmMessage = ({ newAppointment }) => {
+const ConfirmMessage = () => {
+    const { newAppointment } = useContext(DataContext);
     return (
         <>
             {newAppointment.startTime ? (

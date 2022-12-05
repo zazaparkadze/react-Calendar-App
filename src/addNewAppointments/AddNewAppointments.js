@@ -11,41 +11,32 @@ import ConfirmMessage from './ConfirmMessage';
 import ConfirmDecline from './ConfirmDecline';
 import Subject from './Subject';
 import handleNewAppointment from './handleNewAppointment';
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const AddNewAppointment = ({
-    allEmployees,
-    schedule,
-    startTime,
-    setStartTime,
-    employeeID,
-    setEmployeeID,
-    duration,
-    setDuration,
-    newAppointment,
-    setNewAppointment,
-    subject,
-    setSubject,
-    API_URI_schedule,
-    setFetchError,
-    vac,
-    setVac,
-}) => {
+const AddNewAppointment = () => {
+    const {
+        employeeID,
+        startTime,
+        duration,
+        subject,
+        setNewAppointment,
+        setVac,
+        newAppointment,
+    } = useContext(DataContext);
+    const { allEmployees, schedule } = useContext(AppContext);
     return (
         <div>
             <form className='App' onSubmit={(e) => e.preventDefault()}>
-                <EmployeeID
-                    setEmployeeID={setEmployeeID}
-                    employeeID={employeeID}
-                    allEmployees={allEmployees}
-                    title={'Appointment'}
-                />
-                <Hours startTime={startTime} setStartTime={setStartTime} />
-                <Minutes startTime={startTime} setStartTime={setStartTime} />
-                <Days startTime={startTime} setStartTime={setStartTime} />
-                <Months startTime={startTime} setStartTime={setStartTime} />
-                <Years startTime={startTime} setStartTime={setStartTime} />
-                <Duration duration={duration} setDuration={setDuration} />
-                <Subject subject={subject} setSubject={setSubject} />
+                <EmployeeID />
+                <Hours />
+                <Minutes />
+                <Days />
+                <Months />
+                <Years />
+                <Duration />
+                <Subject />
                 <FaPlus
                     type='submit'
                     className='button'
@@ -62,44 +53,13 @@ const AddNewAppointment = ({
                         );
                     }}
                 />
-                <ConfirmMessage
-                    newAppointment={newAppointment}
-                    setStartTime={setStartTime}
-                    startTime={startTime}
-                    setDuration={setDuration}
-                    employeeID={employeeID}
-                    schedule={schedule}
-                    allEmployees={allEmployees}
-                    setSubject={setSubject}
-                    setNewAppointment={setNewAppointment}
-                />
+                <ConfirmMessage />
                 {newAppointment.id ? (
-                    <ConfirmDecline
-                        startTime={startTime}
-                        setStartTime={setStartTime}
-                        setDuration={setDuration}
-                        employeeID={employeeID}
-                        newAppointment={newAppointment}
-                        schedule={schedule}
-                        allEmployees={allEmployees}
-                        setSubject={setSubject}
-                        setNewAppointment={setNewAppointment}
-                        duration={duration}
-                        API_URI_schedule={API_URI_schedule}
-                        setFetchError={setFetchError}
-                        vac={vac}
-                        setVac={setVac}
-                    />
+                    <ConfirmDecline />
                 ) : (
                     <p>Please, fill all fields!</p>
                 )}
-                <BackButton
-                    startTime={startTime}
-                    setStartTime={setStartTime}
-                    setDuration={setDuration}
-                    setSubject={setSubject}
-                    setNewAppointment={setNewAppointment}
-                />
+                <BackButton />
             </form>
         </div>
     );

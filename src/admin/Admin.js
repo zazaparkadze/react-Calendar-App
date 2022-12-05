@@ -1,16 +1,11 @@
 import React from 'react';
 import AddNewEmployee from '../newEmployee/AddNewEmployee';
 
-const Admin = ({ allEmployees, setAllEmployees, schedule, setSchedule }) => {
+const Admin = () => {
     return (
         <div className='App'>
             {localStorage.getItem('roles').includes(5150) ? (
-                <AddNewEmployee
-                    allEmployees={allEmployees}
-                    setAllEmployees={setAllEmployees}
-                    schedule={schedule}
-                    setSchedule={setSchedule}
-                />
+                <AddNewEmployee />
             ) : (
                 <p>Not Authorized</p>
             )}

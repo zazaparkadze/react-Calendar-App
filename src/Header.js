@@ -1,8 +1,12 @@
 import React from 'react';
 import handleLogout from './admin/handleLogout';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import DataContext from './Context/DataContext';
 
-const Header = ({ username, setUsername, setPassword, login, setLogin }) => {
+const Header = () => {
+    const { username, setUsername, setPassword, login, setLogin } =
+        useContext(DataContext);
     return (
         <header>
             <h2> Time</h2>

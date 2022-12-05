@@ -1,17 +1,20 @@
 import React from 'react';
 import handleLogIn from './handleLogIn';
 import { Link } from 'react-router-dom';
-
-const Auth = ({
-    setLogin,
-    username,
-    setUsername,
-    password,
-    setPassword,
-    registered,
-    setAuth,
-    setRegistered,
-}) => {
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
+const Auth = () => {
+    const {
+        setLogin,
+        username,
+        setUsername,
+        password,
+        setPassword,
+        registered,
+        setRegistered,
+    } = useContext(DataContext);
+    const { setAuth } = useContext(AppContext);
     return (
         <form className='App'>
             {registered === 'Registered' && (

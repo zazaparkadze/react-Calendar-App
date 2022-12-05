@@ -1,12 +1,17 @@
 import React from 'react';
+import DataContext from '../Context/DataContext';
+import { AppContext } from '../App';
+import { useContext } from 'react';
 
-const EmployeeID = ({ setEmployeeID, employeeID, allEmployees, title }) => {
+const EmployeeID = () => {
+    const { setEmployeeID, employeeID } = useContext(DataContext);
+    const { allEmployees } = useContext(AppContext);
     const foundEmployee = allEmployees.filter(
         (emp) => emp.employeeID === Number(employeeID)
     );
     return (
         <>
-            <h2 style={{ margin: '1.2rem' }}>{title}</h2>
+            <h2 style={{ margin: '1.2rem' }}>Add New Appointment</h2>
             <label>Your employee ID:</label>
             <input
                 id='employeeID'
