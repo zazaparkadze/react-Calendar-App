@@ -47,10 +47,10 @@ const AppList = ({ scheduleNameEntry, schedule, setSchedule, schID }) => {
                 >
                     {format(
                         parseISO(meeting.startTime),
-                        'HH:mm:ss  dd/MM/yyyy'
+                        'HH:mm:ss  dd-MM-yyyy'
                     )}{' '}
                     <FaMeetup />{' '}
-                    {format(parseISO(meeting.endTime), 'HH:mm:ss  dd/MM/yyyy')}{' '}
+                    {format(parseISO(meeting.endTime), 'HH:mm:ss  dd-MM-yyyy')}{' '}
                     {'  '}
                     {<br />}
                     subject: {meeting.subject}

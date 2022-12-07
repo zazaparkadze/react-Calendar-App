@@ -1,14 +1,15 @@
 import React from 'react';
-import AddNewEmployee from '../newEmployee/AddNewEmployee';
-
+import EmployeeControl from './EmployeeControl';
+import BackButton from '../buttons/BackButton';
 const Admin = () => {
     return (
         <div className='App'>
             {localStorage.getItem('roles').includes(5150) ? (
-                <AddNewEmployee />
+                <EmployeeControl />
             ) : (
                 <p>Not Authorized</p>
             )}
+            <BackButton />
         </div>
     );
 };

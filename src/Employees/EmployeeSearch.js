@@ -3,7 +3,7 @@ import DataContext from '../Context/DataContext';
 import { AppContext } from '../App';
 import { useContext } from 'react';
 
-const EmployeeID = () => {
+const EmployeeSearch = ({ title }) => {
     const { setEmployeeID, employeeID } = useContext(DataContext);
     const { allEmployees } = useContext(AppContext);
     const foundEmployee = allEmployees.filter(
@@ -11,7 +11,7 @@ const EmployeeID = () => {
     );
     return (
         <>
-            <h2 style={{ margin: '1.2rem' }}>Add New Appointment</h2>
+            <h2 style={{ margin: '1.2rem' }}>{title}</h2>
             <label>Your employee ID:</label>
             <input
                 id='employeeID'
@@ -20,18 +20,19 @@ const EmployeeID = () => {
                 value={employeeID}
                 onChange={(e) => setEmployeeID(e.target.value)}
             />
-            {employeeID ? (
-                <p style={{ color: 'green' }}>
-                    Hello{' '}
+            {employeeID && (
+                <p style={{ color: 'red' }}>
+                    {' '}
+                    You are Deleting All Entris for{' '}
                     {foundEmployee.length
                         ? foundEmployee[0].firstname +
                           ' ' +
                           foundEmployee[0].lastname
-                        : 'Stranger'}
+                        : '.....'}
                 </p>
-            ) : null}
+            )}
         </>
     );
 };
 
-export default EmployeeID;
+export default EmployeeSearch;

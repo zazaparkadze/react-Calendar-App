@@ -1,6 +1,6 @@
 import React from 'react';
 import BackButton from '../buttons/BackButton';
-import EmployeeID from '../addNewAppointments/EmployeeID';
+import EmployeeID from '../Employees/EmployeeID';
 import Days from '../addNewAppointments/Days';
 import Months from '../addNewAppointments/Months';
 import Years from '../addNewAppointments/Years';

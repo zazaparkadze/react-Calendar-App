@@ -1,7 +1,7 @@
 import React from 'react';
 import handleNewEmployee from './handleNewEmployee';
-import DataContext from '../Context/DataContext';
-import { AppContext } from '../App';
+import DataContext from '../../Context/DataContext';
+import { AppContext } from '../../App';
 import { useContext } from 'react';
 
 const NewEmployeeOkButton = () => {

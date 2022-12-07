@@ -1,5 +1,5 @@
 import { FaPlus } from 'react-icons/fa';
-import EmployeeID from './EmployeeID';
+import EmployeeID from '../Employees/EmployeeID';
 import Hours from './Hours';
 import Days from './Days';
 import Minutes from './Minutes';
@@ -29,7 +29,7 @@ const AddNewAppointment = () => {
     return (
         <div>
             <form className='App' onSubmit={(e) => e.preventDefault()}>
-                <EmployeeID />
+                <EmployeeID title={'Add New Appointment'} />
                 <Hours />
                 <Minutes />
                 <Days />

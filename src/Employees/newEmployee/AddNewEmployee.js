@@ -1,8 +1,8 @@
 import React from 'react';
 import ConfirmDeclineEmployee from './ConfirmDeclineEmployee';
 import { useNavigate } from 'react-router-dom';
-import DataContext from '../Context/DataContext';
-import { AppContext } from '../App';
+import DataContext from '../../Context/DataContext';
+import { AppContext } from '../../App';
 import { useContext } from 'react';
 
 const AddNewEmployee = () => {

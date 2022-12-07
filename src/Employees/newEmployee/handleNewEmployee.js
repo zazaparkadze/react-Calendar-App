@@ -1,5 +1,5 @@
-import apiReguest from '../config/apiRequest';
-import { API_URI_employee, API_URI_schedule } from '../config/API_URI_DB';
+import apiReguest from '../../config/apiRequest';
+import { API_URI_employee, API_URI_schedule } from '../../config/API_URI_DB';
 
 const handleNewEmployee = async (
     newEmployee,

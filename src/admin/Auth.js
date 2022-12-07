@@ -37,9 +37,12 @@ const Auth = () => {
                 onChange={(e) => setPassword(e.target.value)} // check
             />
             <label>submit</label>
-            <Link to='/nav'>
+            <Link
+                to='/nav'
+                onClick={() => localStorage.setItem('isDeleting', false)}
+            >
                 <button
-                    onClick={() =>
+                    onClick={() => {
                         handleLogIn(
                             username,
                             setUsername,
@@ -48,8 +51,8 @@ const Auth = () => {
                             setLogin,
                             setAuth,
                             setRegistered
-                        )
-                    }
+                        );
+                    }}
                 >
                     Log in
                 </button>

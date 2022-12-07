@@ -10,6 +10,8 @@ import Admin from './admin/Admin';
 import photo from './img/katan.jpg';
 import Auth from './admin/Auth';
 import Register from './admin/Register';
+import AddNewEmployee from './Employees/newEmployee/AddNewEmployee';
+import DeleteEmployee from './Employees/deleteEmployee/DeleteEmployee';
 import { DataProvider } from './Context/DataContext';
 import { useState, useEffect, createContext } from 'react';
 import { API_URI_employee, API_URI_schedule } from './config/API_URI_DB';
@@ -177,6 +179,14 @@ function App() {
                                 element={<Announcements />}
                             />
                             <Route path='/nav/admin' element={<Admin />} />
+                            <Route
+                                path='/nav/admin/AddNewEmployee'
+                                element={<AddNewEmployee />}
+                            />
+                            <Route
+                                path='/nav/admin/DeleteEmployee'
+                                element={<DeleteEmployee />}
+                            />
                             {/*   )} */}
                         </Routes>
                     )}
