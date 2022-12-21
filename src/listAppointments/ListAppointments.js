@@ -18,7 +18,9 @@ const ListAppointments = ({ schedule, setSchedule }) => {
             <ul className='appointmentsList'>
                 {schedule.map((scheduleNameEntry) => (
                     <li key={scheduleNameEntry.name}>
-                        {scheduleNameEntry.name}'s appointments:{' '}
+                        {!scheduleNameEntry.meetings.length
+                            ? null
+                            : `${scheduleNameEntry.name}'s appointments:`}
                         <AppList
                             scheduleNameEntry={{
                                 ...scheduleNameEntry,

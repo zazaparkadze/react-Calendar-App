@@ -34,9 +34,10 @@ const AppList = ({ scheduleNameEntry, schedule, setSchedule, schID }) => {
     };
     return (
         <ol>
-            {!scheduleNameEntry.meetings.length && (
-                <p style={{ color: 'red' }}> No Appointments</p>
-            )}
+            {
+                !scheduleNameEntry.meetings.length &&
+                    null /*  <p style={{ color: 'red' }}> No Appointments</p> */
+            }
             {scheduleNameEntry.meetings.map((meeting) => (
                 <li
                     className='appointmentsList'

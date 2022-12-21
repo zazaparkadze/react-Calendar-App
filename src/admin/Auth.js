@@ -38,7 +38,7 @@ const Auth = () => {
             />
             <label>submit</label>
             <Link
-                to='/nav'
+                to={'/nav'}
                 onClick={() => localStorage.setItem('isDeleting', false)}
             >
                 <button

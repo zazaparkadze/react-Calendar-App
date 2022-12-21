@@ -57,6 +57,15 @@ function App() {
             setSchedule(scheduleList);
         })();
     }, []);
+
+    const count = () => {
+        let x = 0;
+        return () => {
+            x++;
+            return x;
+        };
+    };
+    const counter = count();
     return (
         <div className='App'>
             <DataProvider>
@@ -76,6 +85,7 @@ function App() {
                         API_URI_employee,
                         searchAppointmentName,
                         setSearchAppointmentName,
+                        counter,
                     }}
                 >
                     {!isLoading && !fetchError && <Header />}
