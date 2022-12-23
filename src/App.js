@@ -57,15 +57,6 @@ function App() {
             setSchedule(scheduleList);
         })();
     }, []);
-
-    const count = () => {
-        let x = 0;
-        return () => {
-            x++;
-            return x;
-        };
-    };
-    const counter = count();
     return (
         <div className='App'>
             <DataProvider>
@@ -85,10 +76,9 @@ function App() {
                         API_URI_employee,
                         searchAppointmentName,
                         setSearchAppointmentName,
-                        counter,
                     }}
                 >
-                    {!isLoading && !fetchError && <Header />}
+                    {!isLoading && fetchError === null && <Header />}
                     {isLoading ? (
                         <p style={{ fontSize: '3rem' }}>Loading...</p>
                     ) : !auth ? (
@@ -105,17 +95,12 @@ function App() {
                                 path='/registration'
                                 element={<Register />}
                             />
-                            {/*  {login && (    ....<> </>*/}
                             <Route
                                 path='/nav'
                                 element={
                                     <>
-                                        {!fetchError && !isLoading && (
-                                            <>
-                                                <Nav />
-                                                <img src={photo} alt='mishka' />
-                                            </>
-                                        )}
+                                        <Nav />
+                                        <img src={photo} alt='mishka' />
                                     </>
                                 }
                             />
@@ -197,7 +182,6 @@ function App() {
                                 path='/nav/admin/DeleteEmployee'
                                 element={<DeleteEmployee />}
                             />
-                            {/*   )} */}
                         </Routes>
                     )}
                 </AppContext.Provider>
