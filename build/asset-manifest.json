@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f31b01db.css",
+    "main.js": "/static/js/main.c0f769c2.js",
+    "static/media/katan.jpg": "/static/media/katan.b088d000dd48b6d3075d.jpg",
+    "index.html": "/index.html",
+    "main.f31b01db.css.map": "/static/css/main.f31b01db.css.map",
+    "main.c0f769c2.js.map": "/static/js/main.c0f769c2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f31b01db.css",
+    "static/js/main.c0f769c2.js"
+  ]
+}

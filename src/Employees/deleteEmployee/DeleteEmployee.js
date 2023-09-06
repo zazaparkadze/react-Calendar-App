@@ -4,13 +4,15 @@ import { useContext } from 'react';
 import DataContext from '../../Context/DataContext';
 import { AppContext } from '../../App';
 import BackButton from '../../buttons/BackButton';
+import apiReguest from '../../config/apiRequest';
+import { API_URI_employee } from '../../config/API_URI_DB';
 
 const DeleteEmployee = () => {
     const { employeeID } = useContext(DataContext);
     const { allEmployees, setAllEmployees, schedule, setSchedule } =
         useContext(AppContext);
 
-    const handleDeleteEmployee = (employeeID) => {
+    const handleDeleteEmployee = async (employeeID) => {
         const foundEmployee = allEmployees.find(
             (employee) => employee.employeeID === Number(employeeID)
         );
@@ -27,6 +29,17 @@ const DeleteEmployee = () => {
         console.log(
             `Employee ${employeeID} and all entries successfully deleted`
         );
+        // send delete request
+        //
+        const optionsObj = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ employeeID: employeeID }),
+        };
+        const deleteUrl = API_URI_employee;
+        const resp = await apiReguest(deleteUrl, optionsObj);
+        console.log(resp);
+        //
     };
     return (
         <div className='App'>
